@@ -1,13 +1,4 @@
-:root {
-  --color-bg: #121212;
-  --color-text: #e0e0e0;
-  --color-text-muted: #a0a0a0;
-  --color-primary: #bb86fc;
-  --color-secondary: #03dac6;
-  --color-error: #cf6679;
-  --color-surface: #1e1e1e;
-  --color-overlay: rgba(255, 255, 255, 0.05);
-}
+@import 'colors.css';
 
 body {
   background-color: var(--color-bg);

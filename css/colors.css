@@ -1,0 +1,42 @@
+/* Base colors - the actual color values */
+:root {
+  /* Dark theme base colors */
+  --black-0: #000000;
+  --black-1: #121212;
+  --black-2: #1e1e1e;
+  --black-3: #2d2d2d;
+  
+  /* Grayscale */
+  --gray-1: #a0a0a0;
+  --gray-2: #e0e0e0;
+  
+  /* Brand colors */
+  --purple-1: #bb86fc;
+  --teal-1: #03dac6;
+  --red-1: #cf6679;
+  
+  /* Transparent colors */
+  --white-5: rgba(255, 255, 255, 0.05);
+  --black-20: rgba(0, 0, 0, 0.2);
+}
+
+/* Semantic color variables */
+:root {
+  /* Theme colors */
+  --color-bg: var(--black-1);
+  --color-surface: var(--black-2);
+  --color-surface-raised: var(--black-3);
+  
+  /* Text colors */
+  --color-text: var(--gray-2);
+  --color-text-muted: var(--gray-1);
+  
+  /* Action colors */
+  --color-primary: var(--purple-1);
+  --color-secondary: var(--teal-1);
+  --color-error: var(--red-1);
+  
+  /* Effects */
+  --color-overlay: var(--white-5);
+  --color-shadow: var(--black-20);
+} 

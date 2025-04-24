@@ -8,9 +8,23 @@ const BookConfig = {
     {
       id: "01",
       file: "chapter-01.md",
-      title: "Chapter 1" // This will be overridden by the H1 in the markdown file
+      title: "Introduction"
+    },
+    {
+      id: "02",
+      file: "chapter-02.md",
+      title: "Character Development"
+    },
+    {
+      id: "03",
+      file: "chapter-03.md",
+      title: "World Building"
+    },
+    {
+      id: "04",
+      file: "chapter-04.md",
+      title: "Plot Structure"
     }
-    // Add more chapters as needed
   ],
   storage: {
     lastChapterKey: "webbook_last_chapter",
