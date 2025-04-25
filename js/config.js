@@ -1,9 +1,9 @@
 const BookConfig = {
-  title: "Book Title",
-  author: "Author Name",
-  publicationDate: "2024",
-  copyright: "© 2024 Author Name",
-  license: "All rights reserved",
+  title: "Iron Swan",
+  author: "Halfman",
+  publicationDate: "2025",
+  copyright: "© 2024 Jim Kosem",
+  license: "MIT License",
   chapters: [
     {
       id: "01",
