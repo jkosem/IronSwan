@@ -19,16 +19,17 @@ There is no static site generating or having to install Python, Ruby, faerie hel
 - Generally working
 - Chapter pages render Markdown
 - Very mediocre CSS and front-end design
-- Awesome logo and title sheet
+- Awesome logo and cover
 
 ## Roadmap
 
 - Way better front-end design
+- More than 2 minutes of testing
 - Some sort of swiping thing that makes sense
 
 ## Research
 
-This is "design research" by a designer to test different platforms and techniques for AI-assisted coding.
+This is "design research" by a designer to test different platforms and techniques for AI-assisted coding and make the thing that I can’t seem to find anywhere.
 
 This is amateur and I get that. I'm not a developer unlike these other demo vibe code bros. This is the main thing really. "Vibe coding," for lack of a better word or analogy, is easier for sure, but not "easy" per se to get what you want. However, if you're some dev bro, you know what to say to the robots to get them to do the right things. I don't, so I go back and forth non-stop and half the time it gets it wrong.
 
@@ -36,9 +37,9 @@ I started with debating with Claude 3.7 about how to structure it, and followed 
 
 I started with Cursor and Claude 3.7 I believe. It might be on Claud 20.4 at this point. I have no idea, I can't keep track anymore and the notching up of models by the minute arms race and then putting your amazing opinions online about them feels about the same as writing about bands a decade or two ago and just as winnable.
 
-I switched to Visual Studio Code because I thought I had to and I've been using Ollama a lot for everything else, so this seemed the way forward. Also, Cursor is a bad UI rip-off of VSC anyhow and feels a lot worse as an interface, mainly due to spacing. At first I tried to use Cursor with Ollama via ngrok which was painful and increased my anxiety levels by about 1000% because I realised it opens ports up to the Internet, meaning dragons, wolves and all that at my doorstep. Continue with VSC was pretty good, but very slow. Painfully slow in fact to the point where I thought I could take breaks whilst it was generating things. This was also on DeepSeek Coder mind you which is suppose to be able to cure cancer in a couple of minutes. It could not edit CSS in this span of time, but the results were decent.
+I switched to Visual Studio Code (VSC) because I thought I had to and I've been using [Ollama](https://ollama.com/) a lot for everything else, so this seemed the way forward. Also, Cursor is a bad UI rip-off of VSC and feels really crowded as an interface. At first I tried to use Cursor with Ollama via [ngrok](https://ngrok.com/) which was painful and increased my anxiety levels by about 1000% because I realised it opens ports up to the Internet, meaning dragons, wolves and all that at my doorstep. [Continue](https://ollama.com/blog/continue-code-assistant) with VSC was pretty good, but very slow. Painfully slow in fact to the point where I thought I could take breaks whilst it was generating things. This was also on [DeepSeek Coder](https://ollama.com/library/deepseek-coder) mind you which is suppose to be able to cure cancer in a couple of minutes. It could not edit CSS in this span of time, but the results were decent.
 
-Then back to Cursor and trying out cursor-small and cursor-fast LLMs which were actually as good as anything and free.
+Then back to Cursor and trying out `cursor-small` and `cursor-fast` LLMs which were actually as good as anything and free.
 
 ## Credits
 
