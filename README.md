@@ -1,5 +1,7 @@
 # Iron Swan
 
+![IronSwan](https://github.com/user-attachments/assets/308f8a64-4f34-4af9-bae5-a385dbb2a158)
+
 ## About
 
 Iron Swan is an web-book template. It is all flat files which you can modify for your own use and at your own peril. If you want to publish simple to read books for the web that you put on your own server somewhere, this is exactly for you.
