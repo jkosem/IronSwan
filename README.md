@@ -14,21 +14,24 @@ There is a Markdown directory. You put your chapters in Markdown files there.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it.
 
-So far, the chapter files need to all be listed in 'config.js' under 'chapters.' Likewise you should edit the author, publicationDate, copyright and license.
+So far, the chapter files need to all be listed in `config.js` under `chapters`. Likewise you should edit the author, publicationDate, copyright and license.
 
-There is no static site generating or having to install Python, Ruby, faerie helpers, demonic assistants, etc.
+There is a slightly bigger pain in the ass which is line 37 of each chapter file where you need to update the number of CHAPTER_ID to equal the chapter number.
+
+`const CHAPTER_ID = '01'; // Update this for each chapter`
 
 ## v1
 
 - Generally working
 - Chapter pages render Markdown
-- Very mediocre CSS and front-end design
+- Very mediocre at best front-end design
 - Awesome logo and cover
 
 ## Roadmap
 
-- Way better front-end design
+- Way better front-end that is actually designed
 - Won't have to update the config.js files with the chapter names and will list automagically
+- Won't have to update the CHAPTER_ID manually in each chapter file
 - More than 2 minutes of testing
 - Some sort of interaction thing that makes sense
 
