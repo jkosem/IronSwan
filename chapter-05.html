@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot Structure</title>
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+    <div class="container">
+        <header class="chapter-header">
+            <a href="/index.html" id="book-title">Book Title</a>
+        </header>
+
+        <main class="chapter-content">
+            <!-- Chapter content will be loaded here -->
+        </main>
+
+        <nav class="navigation">
+            <a href="#" class="nav-link nav-prev">Previous Chapter</a>
+            <a href="#" class="nav-link nav-next">Next Chapter</a>
+        </nav>
+
+        <footer>
+            <p id="book-copyright"></p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import config from '/js/config.js';
+        import contentLoader from '/js/content-loader.js';
+        import navigation from '/js/navigation.js';
+
+        const CHAPTER_ID = '05';
+
+        // Update page with book info
+        document.getElementById('book-title').textContent = config.title;
+        document.getElementById('book-copyright').textContent = config.copyright;
+
+        // Load chapter content
+        async function initChapter() {
+            const { title, content } = await contentLoader.loadChapterContent(CHAPTER_ID);
+            contentLoader.updateChapterContent(title, content);
+            navigation.updateNavigationLinks(CHAPTER_ID);
+            document.title = `${config.title} - ${title}`;
+        }
+
+        initChapter();
+    </script>
+</body>
+</html> 

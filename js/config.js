@@ -24,6 +24,11 @@ const BookConfig = {
       id: "04",
       file: "chapter-04.md",
       title: "Plot Structure"
+    },
+    {
+      id: "05",
+      file: "chapter-05.md",
+      title: "The Last Chapter"
     }
   ],
   storage: {

@@ -14,6 +14,8 @@ There is a Markdown directory. You put your chapters in Markdown files there.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it.
 
+So far, the chapter files need to all be listed in 'config.js' under 'chapters.' Likewise you should edit the author, publicationDate, copyright and license.
+
 There is no static site generating or having to install Python, Ruby, faerie helpers, demonic assistants, etc.
 
 ## v1
@@ -26,8 +28,9 @@ There is no static site generating or having to install Python, Ruby, faerie hel
 ## Roadmap
 
 - Way better front-end design
+- Won't have to update the config.js files with the chapter names and will list automagically
 - More than 2 minutes of testing
-- Some sort of swiping thing that makes sense
+- Some sort of interaction thing that makes sense
 
 ## Research
 
