@@ -26,7 +26,16 @@ class MarkdownParser {
     text = text.replace(/^## (.*$)/gm, '<h2>$1</h2>');
     text = text.replace(/^# (.*$)/gm, '<h1>$1</h1>');
 
-    // 6. Unordered lists: group consecutive lines starting with - or *
+    // 6. Horizontal Rules
+    text = text.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr>');
+
+    // 7. Blockquotes
+    text = text.replace(/(?:^>.*(?:\n|$))+/gm, (match) => {
+      const content = match.trim().split('\n').map(line => line.replace(/^>\s?/, '').trim()).join('<br>');
+      return `<blockquote><p>${content}</p></blockquote>\n`;
+    });
+
+    // 8. Unordered lists: group consecutive lines starting with - or *
     text = text.replace(/(?:^[*-] .*(?:\n|$))+/gm, (match) => {
       const items = match.trim().split('\n').map(line => {
         const content = line.replace(/^[*-] /, '').trim();
@@ -35,12 +44,12 @@ class MarkdownParser {
       return `<ul>\n${items}\n</ul>\n`;
     });
 
-    // 7. Paragraphs: split by double newlines, wrap non-block sections in <p>
+    // 9. Paragraphs: split by double newlines, wrap non-block sections in <p>
     const blocks = text.split(/\n\s*\n+/);
     const result = blocks.map(block => {
       const trimmed = block.trim();
       if (!trimmed) return '';
-      if (/^<(?:h[1-6]|ul|ol|li|p|div|blockquote|img)/i.test(trimmed)) {
+      if (/^<(?:h[1-6]|ul|ol|li|p|div|blockquote|img|hr)/i.test(trimmed)) {
         return trimmed;
       }
       const inlines = trimmed.split('\n').map(l => l.trim()).join(' ');

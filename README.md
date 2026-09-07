@@ -20,6 +20,40 @@ There is a slightly bigger pain in the ass which is line 37 of each chapter file
 
 `const CHAPTER_ID = '01'; // Update this for each chapter`
 
+## Themes
+
+Iron Swan supports modular themes using standalone CSS files. You never need to edit the chapter HTML files to switch or add a theme—they all link to a single entry point: `css/theme.css`.
+
+Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
+- **`css/base-theme.css`**: The original dark theme (clean rounded cards, purple/teal accents).
+- **`css/coldforest-theme.css`**: The Cold Forest theme—a high-contrast GeoCities / suburban black metal space aesthetic with cosmic pitch-black void, deep occult purples, starlight cyan, and plain Times New Roman typography.
+
+### How to Switch Themes
+
+Open `css/theme.css` and uncomment the theme you want:
+
+```css
+/* ==========================================================================
+   Theme Selection
+   Uncomment ONE of the lines below to choose the active theme:
+   ========================================================================== */
+/* @import url('base-theme.css'); */
+@import url('coldforest-theme.css');
+```
+
+Save the file and refresh your browser. That's all there is to it.
+
+*(You can also set `theme: "coldforest"` or `theme: "base"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
+
+### Creating a New Theme
+
+1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
+2. Add your styles (you can use `base-theme.css` or `coldforest-theme.css` as a starter template).
+3. Add an `@import` line for it in `css/theme.css`:
+   ```css
+   @import url('mycool-theme.css');
+   ```
+
 ## v1
 
 - Generally working

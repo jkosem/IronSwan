@@ -4,6 +4,11 @@ const BookConfig = {
   publicationDate: "2025",
   copyright: "© 2025 Jim Kosem",
   license: "MIT License",
+
+  // Theme selection - uncomment ONE of the lines below:
+  // theme: "base",
+  theme: "coldforest",
+
   chapters: [
     {
       id: "01",
@@ -36,5 +41,12 @@ const BookConfig = {
     expiryDays: 30
   }
 };
+
+// Automatically apply active theme to document root
+if (typeof document !== 'undefined') {
+  const selectedTheme = (BookConfig.theme || 'base').toLowerCase().trim();
+  const isColdForest = selectedTheme === 'coldforest' || selectedTheme === 'cold-forest';
+  document.documentElement.setAttribute('data-theme', isColdForest ? 'coldforest' : 'base');
+}
 
 export default BookConfig; 

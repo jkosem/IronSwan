@@ -1,0 +1,433 @@
+/* ==========================================================================
+   Cold Forest Theme (coldforest-theme.css)
+   A deadpan, high-contrast suburban black metal & GeoCities space aesthetic.
+   Pitch-black cosmic void, deep occult purples, electric space neon,
+   starlight cyan, and plain Times New Roman typography.
+   ========================================================================== */
+
+:root,
+:root[data-theme="coldforest"],
+:root[data-theme="cold-forest"],
+[data-theme="coldforest"],
+[data-theme="cold-forest"] {
+  /* Design Tokens / Space & GeoCities Color Palette */
+  --cf-bg: #040209;                    /* Cosmic Pitch Black / Void */
+  --cf-surface: #0d071a;               /* Deep Occult Nebula / Basement Black-Purple */
+  --cf-surface-secondary: #190e32;     /* Orbit Surface / Hover */
+  --cf-border: #3f1d73;                /* Cosmic Purple Border / Grim Stardust */
+  --cf-border-bright: #8b2cf5;         /* Electric Neon Border */
+  --cf-text-primary: #f5eeff;          /* Starlight White */
+  --cf-text-muted: #9b8ec0;            /* Cosmic Dust / Matted Violet */
+  --cf-accent: #b026ff;                /* GeoCities Electric Purple */
+  --cf-accent-hover: #00f0ff;          /* Cosmic Starlight Cyan */
+  --cf-accent-magenta: #e040fb;        /* Supernova Magenta */
+  
+  /* Semantic mappings */
+  --color-bg: var(--cf-bg);
+  --color-surface: var(--cf-surface);
+  --color-surface-raised: var(--cf-surface-secondary);
+  --color-text: var(--cf-text-primary);
+  --color-text-muted: var(--cf-text-muted);
+  --color-primary: var(--cf-accent);
+  --color-secondary: var(--cf-accent-hover);
+  --color-overlay: var(--cf-border);
+  --color-shadow: rgba(4, 2, 9, 0.95);
+  
+  /* Typography Tokens */
+  --font-serif-brand: "Times New Roman", Times, Georgia, serif;
+  --font-editorial-body: Georgia, Merriweather, "Times New Roman", serif;
+  --font-utilitarian-mono: "Space Mono", "Courier New", Courier, monospace;
+  
+  --font-primary: var(--font-editorial-body);
+  --line-height-base: 1.75;
+  --border-radius-none: 0px;
+}
+
+/* Global Cold Forest Resets & Base: Pure Space Black */
+body,
+[data-theme="coldforest"] body,
+[data-theme="cold-forest"] body {
+  background-color: var(--cf-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(63, 29, 115, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(176, 38, 255, 0.08) 0%, transparent 35%);
+  background-attachment: fixed;
+  color: var(--cf-text-primary);
+  font-family: var(--font-editorial-body);
+  line-height: var(--line-height-base);
+  letter-spacing: 0.01em;
+}
+
+/* Reading & Content Column: 65-75ch centered */
+html .container,
+[data-theme="coldforest"] .container,
+[data-theme="cold-forest"] .container {
+  max-width: 70ch;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+/* Typography - Headings / Titles / Brand: Plain Times New Roman with letter spacing */
+h1, h2, h3, #book-title,
+[data-theme="coldforest"] h1,
+[data-theme="cold-forest"] h1,
+[data-theme="coldforest"] h2,
+[data-theme="cold-forest"] h2,
+[data-theme="coldforest"] h3,
+[data-theme="cold-forest"] h3,
+[data-theme="coldforest"] #book-title,
+[data-theme="cold-forest"] #book-title {
+  font-family: var(--font-serif-brand);
+  color: var(--cf-text-primary);
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+[data-theme="coldforest"] h1,
+[data-theme="cold-forest"] h1 {
+  font-size: 2.3rem;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--cf-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(176, 38, 255, 0.25);
+}
+
+h2,
+[data-theme="coldforest"] h2,
+[data-theme="cold-forest"] h2 {
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f5eeff;
+  border-bottom: 1px dashed rgba(63, 29, 115, 0.6);
+  padding-bottom: 0.35rem;
+}
+
+h3,
+[data-theme="coldforest"] h3,
+[data-theme="cold-forest"] h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--cf-accent-magenta);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+p,
+[data-theme="coldforest"] p,
+[data-theme="cold-forest"] p {
+  margin-bottom: 1.5rem;
+  color: var(--cf-text-primary);
+  font-size: 1.05rem;
+}
+
+/* Navigation & Header: Pitch black with glowing 1px cosmic purple border */
+html .chapter-header,
+[data-theme="coldforest"] .chapter-header,
+[data-theme="cold-forest"] .chapter-header {
+  background-color: var(--cf-bg);
+  border-bottom: 1px solid var(--cf-border);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.chapter-header #book-title,
+[data-theme="coldforest"] .chapter-header #book-title,
+[data-theme="cold-forest"] .chapter-header #book-title {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cf-text-primary);
+  transition: all 0.2s ease;
+}
+
+.chapter-header #book-title:hover,
+[data-theme="coldforest"] .chapter-header #book-title:hover,
+[data-theme="cold-forest"] .chapter-header #book-title:hover {
+  color: var(--cf-accent-hover);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+/* Chapter Content Card: Cosmic dark nebula, raw 0px corners, 1px purple border */
+html .chapter-content,
+[data-theme="coldforest"] .chapter-content,
+[data-theme="cold-forest"] .chapter-content {
+  background-color: var(--cf-surface);
+  border: 1px solid var(--cf-border);
+  border-radius: 0px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(63, 29, 115, 0.2);
+  padding: 2.25rem;
+  margin-top: 1rem;
+}
+
+/* Buttons & Actions: GeoCities rectangular, sharp corners (rounded-none), 1px solid borders */
+html .nav-link,
+[data-theme="coldforest"] .nav-link,
+[data-theme="cold-forest"] .nav-link {
+  display: inline-block;
+  background-color: var(--cf-surface);
+  color: var(--cf-text-primary);
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--cf-border);
+  border-radius: 0px;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.nav-link:hover,
+[data-theme="coldforest"] .nav-link:hover,
+[data-theme="cold-forest"] .nav-link:hover {
+  background-color: var(--cf-surface-secondary);
+  border-color: var(--cf-accent-hover);
+  color: var(--cf-accent-hover);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.35);
+}
+
+.nav-link:active,
+.nav-next,
+[data-theme="coldforest"] .nav-link:active,
+[data-theme="cold-forest"] .nav-link:active,
+[data-theme="coldforest"] .nav-next,
+[data-theme="cold-forest"] .nav-next {
+  border-color: var(--cf-border-bright);
+}
+
+html .navigation,
+[data-theme="coldforest"] .navigation,
+[data-theme="cold-forest"] .navigation {
+  border-top: 1px solid var(--cf-border);
+  padding: 1.5rem 0;
+  margin-top: 2.5rem;
+}
+
+/* Resume Reading link */
+.resume-reading,
+[data-theme="coldforest"] .resume-reading,
+[data-theme="cold-forest"] .resume-reading {
+  margin: 1.5rem 0;
+}
+
+.resume-reading .nav-link,
+[data-theme="coldforest"] .resume-reading .nav-link,
+[data-theme="cold-forest"] .resume-reading .nav-link {
+  border-color: var(--cf-accent);
+  color: var(--cf-text-primary);
+  background-color: var(--cf-surface);
+  box-shadow: 0 0 8px rgba(176, 38, 255, 0.25);
+}
+
+.resume-reading .nav-link:hover,
+[data-theme="coldforest"] .resume-reading .nav-link:hover,
+[data-theme="cold-forest"] .resume-reading .nav-link:hover {
+  background-color: var(--cf-accent);
+  border-color: var(--cf-accent);
+  color: #040209;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.6);
+}
+
+/* Dividers & Horizontal Rules: Cosmic Stardust line */
+hr,
+[data-theme="coldforest"] hr,
+[data-theme="cold-forest"] hr {
+  border: none;
+  border-top: 1px solid var(--cf-border);
+  margin: 2.5rem 0;
+}
+
+/* Blockquotes: Electric purple left-border accent with dark occult background */
+blockquote,
+[data-theme="coldforest"] blockquote,
+[data-theme="cold-forest"] blockquote {
+  border-left: 3px solid var(--cf-accent);
+  background-color: rgba(176, 38, 255, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--cf-text-primary);
+  border-radius: 0px;
+  box-shadow: inset 0 0 10px rgba(176, 38, 255, 0.05);
+}
+
+blockquote p,
+[data-theme="coldforest"] blockquote p,
+[data-theme="cold-forest"] blockquote p {
+  margin-bottom: 0;
+}
+
+/* Links inside content: GeoCities electric purple / cyan hover */
+a,
+[data-theme="coldforest"] a,
+[data-theme="cold-forest"] a {
+  color: var(--cf-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(176, 38, 255, 0.5);
+  transition: all 0.15s ease;
+}
+
+a:hover,
+[data-theme="coldforest"] a:hover,
+[data-theme="cold-forest"] a:hover {
+  color: var(--cf-accent-hover);
+  text-decoration-color: var(--cf-accent-hover);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* Table of Contents: Cosmic black metal zine layout */
+html .toc,
+[data-theme="coldforest"] .toc,
+[data-theme="cold-forest"] .toc {
+  background-color: var(--cf-surface);
+  border: 1px solid var(--cf-border);
+  border-radius: 0px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(63, 29, 115, 0.2);
+  padding: 2rem;
+}
+
+.toc-item,
+[data-theme="coldforest"] .toc-item,
+[data-theme="cold-forest"] .toc-item {
+  border-bottom: 1px solid rgba(63, 29, 115, 0.6);
+  padding: 0.75rem 0;
+}
+
+.toc-link,
+[data-theme="coldforest"] .toc-link,
+[data-theme="cold-forest"] .toc-link {
+  color: var(--cf-text-primary);
+  font-family: var(--font-serif-brand);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.toc-link:hover,
+[data-theme="coldforest"] .toc-link:hover,
+[data-theme="cold-forest"] .toc-link:hover {
+  color: var(--cf-accent-hover);
+  transform: translateX(4px);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Cover section: Space / GeoCities black metal banner */
+html .cover,
+[data-theme="coldforest"] .cover,
+[data-theme="cold-forest"] .cover {
+  border: 1px solid var(--cf-border);
+  background-color: var(--cf-surface);
+  border-radius: 0px;
+  padding: 2.5rem 1.5rem;
+  min-height: auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 20px rgba(176, 38, 255, 0.15);
+}
+
+.cover h1,
+[data-theme="coldforest"] .cover h1,
+[data-theme="cold-forest"] .cover h1 {
+  font-size: 2.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+}
+
+.cover p,
+[data-theme="coldforest"] .cover p,
+[data-theme="cold-forest"] .cover p {
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.95rem;
+  color: var(--cf-accent-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* Images: sharp raw edges, 1px purple border */
+img,
+[data-theme="coldforest"] img,
+[data-theme="cold-forest"] img {
+  border-radius: 0px;
+  border: 1px solid var(--cf-border);
+}
+
+.cover-image,
+[data-theme="coldforest"] .cover-image,
+[data-theme="cold-forest"] .cover-image {
+  border-radius: 0px;
+  border: 1px solid var(--cf-border-bright);
+  box-shadow: 0 0 15px rgba(139, 44, 245, 0.3);
+  filter: contrast(1.1);
+}
+
+/* Footer: cosmic divider and muted mono text */
+html footer,
+[data-theme="coldforest"] footer,
+[data-theme="cold-forest"] footer {
+  border-top: 1px solid var(--cf-border);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#book-copyright,
+[data-theme="coldforest"] #book-copyright,
+[data-theme="cold-forest"] #book-copyright {
+  color: var(--cf-text-muted);
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Errors & Loading States */
+.error,
+[data-theme="coldforest"] .error,
+[data-theme="cold-forest"] .error {
+  border-radius: 0px;
+  border: 1px solid #ff2a85;
+  background-color: rgba(255, 42, 133, 0.1);
+  color: #ff60a8;
+  font-family: var(--font-utilitarian-mono);
+}
+
+.loading,
+[data-theme="coldforest"] .loading,
+[data-theme="cold-forest"] .loading {
+  color: var(--cf-accent-hover);
+  font-family: var(--font-utilitarian-mono);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Lists */
+.chapter-content ul,
+.chapter-content ol,
+[data-theme="coldforest"] .chapter-content ul,
+[data-theme="cold-forest"] .chapter-content ul,
+[data-theme="coldforest"] .chapter-content ol,
+[data-theme="cold-forest"] .chapter-content ol {
+  color: var(--cf-text-primary);
+}
+
+.chapter-content li,
+[data-theme="coldforest"] .chapter-content li,
+[data-theme="cold-forest"] .chapter-content li {
+  line-height: var(--line-height-base);
+  margin-bottom: 0.5rem;
+}
