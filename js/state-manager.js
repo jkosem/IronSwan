@@ -35,6 +35,12 @@ class StateManager {
         return null;
       }
 
+      // Verify that the chapter exists in config
+      const chapterExists = config.chapters.some(chapter => chapter.id === data.chapterId);
+      if (!chapterExists) {
+        return null;
+      }
+
       return data.chapterId;
     } catch (error) {
       console.warn('Failed to load reading state:', error);

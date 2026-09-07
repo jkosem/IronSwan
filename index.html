@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Title</title>
-    <link rel="stylesheet" href="/css/colors.css">
-    <link rel="stylesheet" href="/css/typography.css">
-    <link rel="stylesheet" href="/css/theme.css">
-    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
     <div class="container">
         <div class="cover">
-            <img src="/images/cover-image.jpg" alt="Book Cover" class="cover-image">
+            <img src="images/cover-image.jpg" alt="Book Cover" class="cover-image">
             <h1 id="book-title">Book Title</h1>
             <p id="book-author">by Author Name</p>
         </div>
@@ -30,9 +30,9 @@
     </div>
 
     <script type="module">
-        import config from '/js/config.js';
-        import tocGenerator from '/js/toc-generator.js';
-        import stateManager from '/js/state-manager.js';
+        import config from './js/config.js';
+        import tocGenerator from './js/toc-generator.js';
+        import stateManager from './js/state-manager.js';
 
         // Update page with book info
         document.getElementById('book-title').textContent = config.title;
@@ -44,13 +44,15 @@
         tocGenerator.generateTOC();
 
         // Check for last read chapter
-        const lastChapter = stateManager.getLastChapter();
-        if (lastChapter) {
+        const lastChapterId = stateManager.getLastChapter();
+        if (lastChapterId) {
+            const chapter = config.chapters.find(c => c.id === lastChapterId);
+            const chapterTitle = chapter ? chapter.title : `Chapter ${lastChapterId}`;
             const resumeReading = document.createElement('div');
             resumeReading.className = 'resume-reading';
             resumeReading.innerHTML = `
-                    <a href="/chapter-${lastChapter}.html" class="nav-link">
-                        Resume Reading Chapter ${lastChapter}
+                    <a href="chapter-${lastChapterId}.html" class="nav-link">
+                        Resume Reading: ${chapterTitle}
                     </a>
                 `;
             document.querySelector('.toc').insertBefore(

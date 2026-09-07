@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 1</title>
-    <link rel="stylesheet" href="/css/colors.css">
-    <link rel="stylesheet" href="/css/typography.css">
-    <link rel="stylesheet" href="/css/theme.css">
-    <link rel="stylesheet" href="/css/layout.css">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
     <div class="container">
         <header class="chapter-header">
-            <a href="/index.html" id="book-title">Book Title</a>
+            <a href="index.html" id="book-title">Book Title</a>
         </header>
 
         <main class="chapter-content">
@@ -30,9 +30,9 @@
     </div>
 
     <script type="module">
-        import config from '/js/config.js';
-        import contentLoader from '/js/content-loader.js';
-        import navigation from '/js/navigation.js';
+        import config from './js/config.js';
+        import contentLoader from './js/content-loader.js';
+        import navigation from './js/navigation.js';
 
         const CHAPTER_ID = '01'; // Update this for each chapter
 
@@ -42,9 +42,9 @@
 
         // Load chapter content
         async function initChapter() {
-            const { title, content } = await contentLoader.loadChapterContent(CHAPTER_ID);
+            const { title, content, success } = await contentLoader.loadChapterContent(CHAPTER_ID);
             contentLoader.updateChapterContent(title, content);
-            navigation.updateNavigationLinks(CHAPTER_ID);
+            navigation.updateNavigationLinks(CHAPTER_ID, success);
             document.title = `${config.title} - ${title}`;
         }
 

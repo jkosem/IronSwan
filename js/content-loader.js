@@ -1,3 +1,4 @@
+import config from './config.js';
 import markdownParser from './markdown-parser.js';
 
 class ContentLoader {
@@ -18,7 +19,9 @@ class ContentLoader {
     this.loadingTimeout = setTimeout(showLoading, this.loadingDelay);
 
     try {
-      const response = await fetch(`/markdown/chapter-${chapterId}.md`);
+      const chapter = config.chapters.find(c => c.id === chapterId);
+      const filePath = chapter ? `markdown/${chapter.file}` : `markdown/chapter-${chapterId}.md`;
+      const response = await fetch(filePath);
       
       if (!response.ok) {
         throw new Error(`Failed to load chapter ${chapterId}`);
@@ -30,25 +33,20 @@ class ContentLoader {
       const title = markdownParser.extractTitle(markdown);
       const content = markdownParser.parse(markdown);
 
-      return { title, content };
+      return { title, content, success: true };
     } catch (error) {
       clearTimeout(this.loadingTimeout);
       return {
         title: 'Error',
-        content: `<div class="error">Failed to load chapter: ${error.message}</div>`
+        content: `<div class="error">Failed to load chapter: ${error.message}</div>`,
+        success: false
       };
     }
   }
 
   // Update the page content with the loaded chapter
   updateChapterContent(title, content) {
-    document.title = title;
-    const titleElement = document.querySelector('.chapter-title');
     const contentElement = document.querySelector('.chapter-content');
-
-    if (titleElement) {
-      titleElement.textContent = title;
-    }
 
     if (contentElement) {
       contentElement.innerHTML = content;

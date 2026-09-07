@@ -2,7 +2,7 @@ const BookConfig = {
   title: "Iron Swan",
   author: "Halfman",
   publicationDate: "2025",
-  copyright: "© 2024 Jim Kosem",
+  copyright: "© 2025 Jim Kosem",
   license: "MIT License",
   chapters: [
     {

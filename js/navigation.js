@@ -12,6 +12,7 @@ class Navigation {
 
   getNextChapter(currentChapterId) {
     const currentIndex = this.getCurrentChapterIndex(currentChapterId);
+    if (currentIndex === -1) return null;
     return currentIndex < this.chapters.length - 1 ? this.chapters[currentIndex + 1] : null;
   }
 
@@ -20,7 +21,7 @@ class Navigation {
     return currentIndex > 0 ? this.chapters[currentIndex - 1] : null;
   }
 
-  updateNavigationLinks(currentChapterId) {
+  updateNavigationLinks(currentChapterId, saveState = true) {
     const prevChapter = this.getPreviousChapter(currentChapterId);
     const nextChapter = this.getNextChapter(currentChapterId);
     
@@ -29,7 +30,7 @@ class Navigation {
 
     if (prevLink) {
       if (prevChapter) {
-        prevLink.href = `/chapter-${prevChapter.id}.html`;
+        prevLink.href = `chapter-${prevChapter.id}.html`;
         prevLink.style.display = 'block';
       } else {
         prevLink.style.display = 'none';
@@ -38,15 +39,17 @@ class Navigation {
 
     if (nextLink) {
       if (nextChapter) {
-        nextLink.href = `/chapter-${nextChapter.id}.html`;
+        nextLink.href = `chapter-${nextChapter.id}.html`;
         nextLink.style.display = 'block';
       } else {
         nextLink.style.display = 'none';
       }
     }
 
-    // Save current chapter to state
-    stateManager.saveLastChapter(currentChapterId);
+    // Save current chapter to state if valid
+    if (saveState && this.getCurrentChapterIndex(currentChapterId) !== -1) {
+      stateManager.saveLastChapter(currentChapterId);
+    }
   }
 }
 
