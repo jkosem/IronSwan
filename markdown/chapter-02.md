@@ -1,4 +1,4 @@
-# Character Development
+# Characters
 
 Creating compelling characters is essential for any story. This chapter explores techniques for developing memorable characters that resonate with readers.
 
@@ -46,4 +46,4 @@ Each character should have a distinct voice that reflects their:
 - Use speech patterns consistently
 - Avoid overusing dialect
 - Show personality through word choice
-- Let actions support words 
+- Let actions support words

@@ -11,7 +11,7 @@ class MarkdownParser {
       if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/') && !src.startsWith('images/')) {
         finalSrc = `images/${src}`;
       }
-      return `<img src="${finalSrc}" alt="${alt}" loading="lazy">`;
+      return `<img src="${finalSrc}" alt="${alt}" loading="lazy" decoding="async">`;
     });
 
     // 3. Links (exclude images which are already converted)

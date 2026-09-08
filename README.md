@@ -14,19 +14,21 @@ There is a Markdown directory. You put your chapters in Markdown files there.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it.
 
-So far, the chapter files need to all be listed in `config.js` under `chapters`. Likewise you should edit the author, publicationDate, copyright and license.
+The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
 
-There is a slightly bigger pain in the ass which is line 37 of each chapter file where you need to update the number of CHAPTER_ID to equal the chapter number.
-
-`const CHAPTER_ID = '01'; // Update this for each chapter`
+To add a new chapter:
+1. Create `markdown/chapter-06.md`.
+2. Copy any existing `chapter-*.html` file to `chapter-06.html` (no script edits required!).
+3. Add the chapter entry to `js/config.js` under `chapters`.
 
 ## Themes
 
-Iron Swan supports modular themes using standalone CSS files. You never need to edit the chapter HTML files to switch or add a theme—they all link to a single entry point: `css/theme.css`.
+Iron Swan supports modular themes using standalone CSS files. They all link to a single entry point: `css/theme.css`.
 
 Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
-- **`css/base-theme.css`**: The original dark theme (clean rounded cards, purple/teal accents).
-- **`css/coldforest-theme.css`**: The Cold Forest theme—a high-contrast GeoCities / suburban black metal space aesthetic with cosmic pitch-black void, deep occult purples, starlight cyan, and plain Times New Roman typography.
+
+- **`css/base-theme.css`**: The original dark theme
+- **`css/coldforest-theme.css`**: The Cold Forest theme which you can use for your Cold Forest fanfic and fan mail.
 
 ### How to Switch Themes
 
@@ -41,7 +43,7 @@ Open `css/theme.css` and uncomment the theme you want:
 @import url('coldforest-theme.css');
 ```
 
-Save the file and refresh your browser. That's all there is to it.
+Save the file and refresh your browser. That's it.
 
 *(You can also set `theme: "coldforest"` or `theme: "base"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
 
@@ -50,6 +52,7 @@ Save the file and refresh your browser. That's all there is to it.
 1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
 2. Add your styles (you can use `base-theme.css` or `coldforest-theme.css` as a starter template).
 3. Add an `@import` line for it in `css/theme.css`:
+
    ```css
    @import url('mycool-theme.css');
    ```
@@ -67,7 +70,7 @@ Save the file and refresh your browser. That's all there is to it.
 - Won't have to update the config.js files with the chapter names and will list automagically
 - Won't have to update the CHAPTER_ID manually in each chapter file
 - More than 2 minutes of testing
-- Some sort of interaction thing that makes sense
+- Some sort of interaction method that makes sense and makes reading actually better in a browser
 
 ## Research
 

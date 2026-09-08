@@ -2,7 +2,7 @@ const BookConfig = {
   title: "Iron Swan",
   author: "Halfman",
   publicationDate: "2025",
-  copyright: "© 2025 Jim Kosem",
+  copyright: "©2025 Halfman / Jim Kosem",
   license: "MIT License",
 
   // Theme selection - uncomment ONE of the lines below:
@@ -49,4 +49,4 @@ if (typeof document !== 'undefined') {
   document.documentElement.setAttribute('data-theme', isColdForest ? 'coldforest' : 'base');
 }
 
-export default BookConfig; 
+export default BookConfig;

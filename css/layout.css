@@ -1,26 +1,98 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  margin: 0 auto;
-  padding: 1rem;
-  max-width: 100%;
-  min-height: 100vh;
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch optimization */
+button,
+.nav-link,
+.toc-link,
+a {
+  touch-action: manipulation;
+}
+
+/* Reading Progress Indicator */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--color-primary, #bb86fc);
+  z-index: 9999;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* Responsive Media Defaults: ensure no images or media ever scroll off screen */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* Mobile-First Container with Safe Area Support */
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1.75rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Tablet: start centering into reading column */
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 62ch;
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Desktop: elegant thinner single-column in the middle of the screen */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 58ch;
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* Cover page styles */
 .cover {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,18 +100,36 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 2rem;
+  padding: 1.75rem 1rem;
+  margin-bottom: 2rem;
   color: var(--color-text);
 }
 
+@media screen and (min-width: 640px) {
+  .cover {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+.cover-image {
+  max-width: min(320px, 80vw);
+  max-height: 52vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  object-fit: contain;
+}
+
 .cover h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 7vw, 3rem);
+  margin-bottom: 0.75rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  word-break: break-word;
 }
 
 .cover p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -52,6 +142,15 @@ body {
   display: inline-block;
   font-weight: 600;
   transition: transform 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (min-width: 640px) {
+  .resume-reading .nav-link {
+    width: auto;
+    text-align: left;
+  }
 }
 
 .resume-reading .nav-link:hover {
@@ -60,7 +159,13 @@ body {
 
 /* Table of Contents styles */
 .toc {
-  padding: 2rem 0;
+  padding: 1.25rem 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .toc {
+    padding: 2rem;
+  }
 }
 
 .toc-list {
@@ -69,9 +174,17 @@ body {
 }
 
 .toc-item {
-  margin: 1rem 0;
-  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
   border-bottom: 1px solid var(--color-overlay);
+}
+
+.toc-link {
+  display: block;
+  padding: 0.5rem 0.25rem;
+  min-height: 44px;
+  line-height: 1.4;
+  text-decoration: none;
 }
 
 .toc-status {
@@ -81,8 +194,8 @@ body {
 
 /* Chapter styles */
 .chapter-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--color-overlay);
 }
 
@@ -94,23 +207,105 @@ body {
 }
 
 .chapter-content {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  padding: 1.25rem 1rem;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 640px) {
+  .chapter-content {
+    padding: 2rem 2.25rem;
+  }
 }
 
 .chapter-content h1 {
   margin-top: 0;
 }
 
+.chapter-content img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1.75rem auto;
+  object-fit: contain;
+}
+
+.chapter-content ul,
+.chapter-content ol {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.chapter-content li {
+  margin-bottom: 0.5rem;
+  line-height: var(--line-height-base, 1.6);
+}
+
 /* Navigation styles */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-overlay);
+}
+
 .nav-link {
-  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.75rem 1.25rem;
   border-radius: 4px;
   background-color: var(--color-surface);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nav-hint {
+  display: none;
+  font-size: 0.8em;
+  opacity: 0.65;
+  margin: 0 0.35rem;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .nav-hint {
+    display: inline;
+  }
+}
+
+.navigation .nav-next {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 420px) {
+  .navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navigation .nav-link {
+    width: 100%;
+  }
+
+  .navigation .nav-next {
+    margin-left: 0;
+  }
 }
 
 /* Footer styles */
 footer {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--color-overlay);
   text-align: center;
@@ -122,17 +317,6 @@ footer {
   margin-bottom: 0;
 }
 
-/* Responsive adjustments */
-@media screen and (min-width: 768px) {
-  body {
-    padding: 2rem;
-  }
-  
-  .container {
-    padding: 0 2rem;
-  }
-}
-
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -141,10 +325,4 @@ footer {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.cover-image {
-  width: 100%;
-  height: auto;
-  display: block;
 } 
