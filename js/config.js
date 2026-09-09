@@ -6,8 +6,8 @@ const BookConfig = {
   license: "MIT License",
 
   // Theme selection - uncomment ONE of the lines below:
-  // theme: "base",
-  theme: "coldforest",
+  theme: "ironswan",
+  // theme: "coldforest",
 
   chapters: [
     {
@@ -44,9 +44,8 @@ const BookConfig = {
 
 // Automatically apply active theme to document root
 if (typeof document !== 'undefined') {
-  const selectedTheme = (BookConfig.theme || 'base').toLowerCase().trim();
-  const isColdForest = selectedTheme === 'coldforest' || selectedTheme === 'cold-forest';
-  document.documentElement.setAttribute('data-theme', isColdForest ? 'coldforest' : 'base');
+  const selectedTheme = (BookConfig.theme || 'ironswan').toLowerCase().trim();
+  document.documentElement.setAttribute('data-theme', selectedTheme);
 }
 
 export default BookConfig;

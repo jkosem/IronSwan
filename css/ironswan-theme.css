@@ -1,0 +1,542 @@
+/* ==========================================================================
+   Iron Swan Theme (ironswan-theme.css)
+   Goes with the Iron Swan logo.
+   A deadpan, high-contrast suburban black metal & GeoCities space aesthetic.
+   Pitch-black cosmic void, deep occult purples, electric space neon,
+   starlight cyan, and plain Times New Roman typography.
+   ========================================================================== */
+
+:root,
+:root[data-theme="ironswan"],
+:root[data-theme="iron-swan"],
+[data-theme="ironswan"],
+[data-theme="iron-swan"] {
+  /* Design Tokens / Space & GeoCities Color Palette */
+  --is-bg: #040209;                    /* Cosmic Pitch Black / Void */
+  --is-surface: #0d071a;               /* Deep Occult Nebula / Basement Black-Purple */
+  --is-surface-secondary: #190e32;     /* Orbit Surface / Hover */
+  --is-border: #3f1d73;                /* Cosmic Purple Border / Grim Stardust */
+  --is-border-bright: #8b2cf5;         /* Electric Neon Border */
+  --is-text-primary: #f5eeff;          /* Starlight White */
+  --is-text-muted: #9b8ec0;            /* Cosmic Dust / Matted Violet */
+  --is-accent: #b026ff;                /* GeoCities Electric Purple */
+  --is-accent-hover: #00f0ff;          /* Cosmic Starlight Cyan */
+  --is-accent-magenta: #e040fb;        /* Supernova Magenta */
+  
+  /* Semantic mappings */
+  --color-bg: var(--is-bg);
+  --color-surface: var(--is-surface);
+  --color-surface-raised: var(--is-surface-secondary);
+  --color-text: var(--is-text-primary);
+  --color-text-muted: var(--is-text-muted);
+  --color-primary: var(--is-accent);
+  --color-secondary: var(--is-accent-hover);
+  --color-overlay: var(--is-border);
+  --color-shadow: rgba(4, 2, 9, 0.95);
+  
+  /* Typography Tokens */
+  --font-serif-brand: "Newsreader", "Times New Roman", Times, Georgia, serif;
+  --font-editorial-body: "Newsreader", "Times New Roman", Times, Georgia, serif;
+  --font-utilitarian-mono: "Space Mono", "Courier New", Courier, monospace;
+  
+  --font-primary: var(--font-editorial-body);
+  --line-height-base: 1.75;
+  --border-radius-none: 0px;
+}
+
+/* Global Iron Swan Resets & Base: Pure Space Black */
+body,
+[data-theme="ironswan"] body,
+[data-theme="iron-swan"] body {
+  background-color: var(--is-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(63, 29, 115, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(176, 38, 255, 0.08) 0%, transparent 35%);
+  background-attachment: fixed;
+  color: var(--is-text-primary);
+  font-family: var(--font-editorial-body);
+  line-height: var(--line-height-base);
+  letter-spacing: 0.01em;
+}
+
+/* Reading Progress Bar: Iron Swan Cosmic Gradient */
+.reading-progress-bar,
+[data-theme="ironswan"] .reading-progress-bar,
+[data-theme="iron-swan"] .reading-progress-bar {
+  background: linear-gradient(90deg, var(--is-accent), var(--is-accent-hover));
+  box-shadow: 0 0 8px rgba(176, 38, 255, 0.6);
+}
+
+/* Reading & Content Column: 38rem measure centered */
+html .container,
+[data-theme="ironswan"] .container,
+[data-theme="iron-swan"] .container {
+  width: 100%;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+}
+
+/* Typography - Headings / Titles / Brand: Refined Newsreader with balanced rhythm */
+h1, h2, h3, #book-title,
+[data-theme="ironswan"] h1,
+[data-theme="iron-swan"] h1,
+[data-theme="ironswan"] h2,
+[data-theme="iron-swan"] h2,
+[data-theme="ironswan"] h3,
+[data-theme="iron-swan"] h3,
+[data-theme="ironswan"] #book-title,
+[data-theme="iron-swan"] #book-title {
+  font-family: var(--font-serif-brand);
+  color: var(--is-text-primary);
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+[data-theme="ironswan"] h1,
+[data-theme="iron-swan"] h1 {
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  border-bottom: 1px solid var(--is-border);
+  padding-bottom: 0.75rem;
+  margin-top: 0;
+  margin-bottom: clamp(1.5rem, 4.5vw, 2.25rem);
+  text-shadow: 0 0 12px rgba(176, 38, 255, 0.25);
+  word-break: break-word;
+}
+
+h2,
+[data-theme="ironswan"] h2,
+[data-theme="iron-swan"] h2 {
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+  margin-top: clamp(2.25rem, 6vw, 3.25rem);
+  margin-bottom: 1rem;
+  color: #f5eeff;
+  border-bottom: 1px dashed rgba(63, 29, 115, 0.6);
+  padding-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+h3,
+[data-theme="ironswan"] h3,
+[data-theme="iron-swan"] h3 {
+  font-size: clamp(1.05rem, 3.2vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.3;
+  margin-top: clamp(1.85rem, 5vw, 2.75rem);
+  margin-bottom: 0.75rem;
+  color: var(--is-accent-magenta);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  word-break: break-word;
+}
+
+p,
+[data-theme="ironswan"] p,
+[data-theme="iron-swan"] p {
+  margin-bottom: 1.45em;
+  color: var(--is-text-primary);
+  font-size: clamp(1rem, 3.6vw, 1.08rem);
+  line-height: 1.75;
+}
+
+/* Navigation & Header: Pitch black with glowing 1px cosmic purple border */
+html .chapter-header,
+[data-theme="ironswan"] .chapter-header,
+[data-theme="iron-swan"] .chapter-header {
+  background-color: var(--is-bg);
+  border-bottom: 1px solid var(--is-border);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.chapter-header #book-title,
+[data-theme="ironswan"] .chapter-header #book-title,
+[data-theme="iron-swan"] .chapter-header #book-title {
+  font-family: var(--font-utilitarian-mono);
+  font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--is-text-muted);
+  transition: all 0.2s ease;
+}
+
+.chapter-header #book-title:hover,
+[data-theme="ironswan"] .chapter-header #book-title:hover,
+[data-theme="iron-swan"] .chapter-header #book-title:hover {
+  color: var(--is-accent-hover);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+/* Chapter Content Card: Cosmic dark nebula, raw 0px corners, 1px purple border */
+html .chapter-content,
+[data-theme="ironswan"] .chapter-content,
+[data-theme="iron-swan"] .chapter-content {
+  background-color: var(--is-surface);
+  border: 1px solid var(--is-border);
+  border-radius: 0px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(63, 29, 115, 0.2);
+  padding: clamp(1.25rem, 4vw, 2.25rem) clamp(1rem, 3vw, 1.75rem);
+  margin-top: 0;
+  overflow-x: hidden;
+}
+
+/* Buttons & Actions: GeoCities rectangular, sharp corners (rounded-none), 1px solid borders */
+html .nav-link,
+[data-theme="ironswan"] .nav-link,
+[data-theme="iron-swan"] .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+  background-color: var(--is-surface);
+  color: var(--is-text-primary);
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--is-border);
+  border-radius: 0px;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nav-hint,
+[data-theme="ironswan"] .nav-hint,
+[data-theme="iron-swan"] .nav-hint {
+  color: var(--is-accent-hover);
+  opacity: 0.75;
+}
+
+.nav-link:hover,
+[data-theme="ironswan"] .nav-link:hover,
+[data-theme="iron-swan"] .nav-link:hover {
+  background-color: var(--is-surface-secondary);
+  border-color: var(--is-accent-hover);
+  color: var(--is-accent-hover);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.35);
+}
+
+.nav-link:active,
+[data-theme="ironswan"] .nav-link:active,
+[data-theme="iron-swan"] .nav-link:active {
+  border-color: var(--is-border-bright);
+}
+
+html .navigation,
+[data-theme="ironswan"] .navigation,
+[data-theme="iron-swan"] .navigation {
+  border-top: 1px solid var(--is-border);
+  padding: 1.5rem 0;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+html .navigation .nav-prev,
+[data-theme="ironswan"] .navigation .nav-prev,
+[data-theme="iron-swan"] .navigation .nav-prev {
+  margin-right: auto;
+}
+
+html .navigation .nav-next,
+[data-theme="ironswan"] .navigation .nav-next,
+[data-theme="iron-swan"] .navigation .nav-next {
+  margin-left: auto;
+}
+
+/* Resume Reading link */
+.resume-reading,
+[data-theme="ironswan"] .resume-reading,
+[data-theme="iron-swan"] .resume-reading {
+  margin: 1.5rem 0;
+}
+
+.resume-reading .nav-link,
+[data-theme="ironswan"] .resume-reading .nav-link,
+[data-theme="iron-swan"] .resume-reading .nav-link {
+  border-color: var(--is-accent);
+  color: var(--is-text-primary);
+  background-color: var(--is-surface);
+  box-shadow: 0 0 8px rgba(176, 38, 255, 0.25);
+}
+
+.resume-reading .nav-link:hover,
+[data-theme="ironswan"] .resume-reading .nav-link:hover,
+[data-theme="iron-swan"] .resume-reading .nav-link:hover {
+  background-color: var(--is-accent);
+  border-color: var(--is-accent);
+  color: #040209;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.6);
+}
+
+/* Dividers & Horizontal Rules: Cosmic Stardust line */
+hr,
+[data-theme="ironswan"] hr,
+[data-theme="iron-swan"] hr {
+  border: none;
+  border-top: 1px solid var(--is-border);
+  margin: 2.5rem 0;
+}
+
+/* Blockquotes: Electric purple left-border accent with dark occult background */
+blockquote,
+[data-theme="ironswan"] blockquote,
+[data-theme="iron-swan"] blockquote {
+  border-left: 3px solid var(--is-accent);
+  background-color: rgba(176, 38, 255, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--is-text-primary);
+  border-radius: 0px;
+  box-shadow: inset 0 0 10px rgba(176, 38, 255, 0.05);
+}
+
+blockquote p,
+[data-theme="ironswan"] blockquote p,
+[data-theme="iron-swan"] blockquote p {
+  margin-bottom: 0;
+}
+
+/* Links inside content: GeoCities electric purple / cyan hover */
+a,
+[data-theme="ironswan"] a,
+[data-theme="iron-swan"] a {
+  color: var(--is-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(176, 38, 255, 0.5);
+  transition: all 0.15s ease;
+}
+
+a:hover,
+[data-theme="ironswan"] a:hover,
+[data-theme="iron-swan"] a:hover {
+  color: var(--is-accent-hover);
+  text-decoration-color: var(--is-accent-hover);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* Table of Contents: Cosmic black metal zine layout */
+html .toc,
+[data-theme="ironswan"] .toc,
+[data-theme="iron-swan"] .toc {
+  background-color: var(--is-surface);
+  border: 1px solid var(--is-border);
+  border-radius: 0px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(63, 29, 115, 0.2);
+  width: 100%;
+  padding: 1.25rem 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  html .toc,
+  [data-theme="ironswan"] .toc,
+  [data-theme="iron-swan"] .toc {
+    padding: 2rem;
+  }
+}
+
+.toc h2,
+[data-theme="ironswan"] .toc h2,
+[data-theme="iron-swan"] .toc h2 {
+  font-family: var(--font-utilitarian-mono);
+  font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--is-text-muted);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.toc-item,
+[data-theme="ironswan"] .toc-item,
+[data-theme="iron-swan"] .toc-item {
+  border-bottom: 1px solid rgba(63, 29, 115, 0.6);
+  padding: 0;
+}
+
+.toc-link,
+[data-theme="ironswan"] .toc-link,
+[data-theme="iron-swan"] .toc-link {
+  color: var(--is-text-primary);
+  font-family: var(--font-serif-brand);
+  font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: baseline;
+  padding: 0.85rem 0.2rem;
+  min-height: 48px;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.toc-link:hover,
+[data-theme="ironswan"] .toc-link:hover,
+[data-theme="iron-swan"] .toc-link:hover {
+  color: var(--is-accent-hover);
+  transform: translateX(4px);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Cover section: Space / GeoCities black metal banner */
+html .cover,
+[data-theme="ironswan"] .cover,
+[data-theme="iron-swan"] .cover {
+  border: 1px solid var(--is-border);
+  background-color: var(--is-surface);
+  border-radius: 0px;
+  padding: 1.5rem 1rem;
+  min-height: auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 20px rgba(176, 38, 255, 0.15);
+}
+
+@media screen and (min-width: 640px) {
+  html .cover,
+  [data-theme="ironswan"] .cover,
+  [data-theme="iron-swan"] .cover {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+.cover h1,
+[data-theme="ironswan"] .cover h1,
+[data-theme="iron-swan"] .cover h1 {
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+  word-break: break-word;
+}
+
+.cover p,
+[data-theme="ironswan"] .cover p,
+[data-theme="iron-swan"] .cover p {
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.95rem;
+  color: var(--is-accent-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* Images: sharp raw edges, 1px purple border, strictly responsive */
+img,
+[data-theme="ironswan"] img,
+[data-theme="iron-swan"] img {
+  border-radius: 0px;
+  border: 1px solid var(--is-border);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+.chapter-content img,
+[data-theme="ironswan"] .chapter-content img,
+[data-theme="iron-swan"] .chapter-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.75rem auto;
+  box-shadow: 0 0 15px rgba(63, 29, 115, 0.3);
+}
+
+.cover-image,
+[data-theme="ironswan"] .cover-image,
+[data-theme="iron-swan"] .cover-image {
+  border-radius: 0px;
+  border: 1px solid var(--is-border-bright);
+  box-shadow: 0 0 15px rgba(139, 44, 245, 0.3);
+  filter: contrast(1.1);
+  max-width: min(320px, 80vw);
+  max-height: 52vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  object-fit: contain;
+}
+
+/* Footer: cosmic divider and muted mono text */
+html footer,
+[data-theme="ironswan"] footer,
+[data-theme="iron-swan"] footer {
+  border-top: 1px solid var(--is-border);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#book-copyright,
+[data-theme="ironswan"] #book-copyright,
+[data-theme="iron-swan"] #book-copyright {
+  color: var(--is-text-muted);
+  font-family: var(--font-utilitarian-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Errors & Loading States */
+.error,
+[data-theme="ironswan"] .error,
+[data-theme="iron-swan"] .error {
+  border-radius: 0px;
+  border: 1px solid #ff2a85;
+  background-color: rgba(255, 42, 133, 0.1);
+  color: #ff60a8;
+  font-family: var(--font-utilitarian-mono);
+}
+
+.loading,
+[data-theme="ironswan"] .loading,
+[data-theme="iron-swan"] .loading {
+  color: var(--is-accent-hover);
+  font-family: var(--font-utilitarian-mono);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Lists */
+.chapter-content ul,
+.chapter-content ol,
+[data-theme="ironswan"] .chapter-content ul,
+[data-theme="iron-swan"] .chapter-content ul,
+[data-theme="ironswan"] .chapter-content ol,
+[data-theme="iron-swan"] .chapter-content ol {
+  color: var(--is-text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.chapter-content li,
+[data-theme="ironswan"] .chapter-content li,
+[data-theme="iron-swan"] .chapter-content li {
+  line-height: var(--line-height-base);
+  margin-bottom: 0.5rem;
+}

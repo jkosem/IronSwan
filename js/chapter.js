@@ -59,6 +59,35 @@ function setupProgressBar() {
 }
 
 /**
+ * Calculate estimated reading time and display it right below the chapter title.
+ */
+function setupReadingTime() {
+  const contentEl = document.querySelector('.chapter-content');
+  if (!contentEl) return;
+
+  // Remove existing indicator if present
+  const existing = contentEl.querySelector('.chapter-reading-time');
+  if (existing) existing.remove();
+
+  // Calculate word count from chapter content (approx. 220 words per minute)
+  const text = contentEl.innerText || contentEl.textContent || '';
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 220));
+
+  const timeEl = document.createElement('div');
+  timeEl.className = 'chapter-reading-time';
+  timeEl.textContent = `${minutes} min read`;
+
+  const titleEl = contentEl.querySelector('h1');
+  if (titleEl) {
+    titleEl.classList.add('has-reading-time');
+    titleEl.insertAdjacentElement('afterend', timeEl);
+  } else {
+    contentEl.prepend(timeEl);
+  }
+}
+
+/**
  * Keyboard navigation for desktop readers.
  * Left Arrow or '[': Previous Chapter
  * Right Arrow or ']': Next Chapter
@@ -137,6 +166,9 @@ async function initChapter() {
   // Load and render chapter markdown
   const { title, content, success } = await contentLoader.loadChapterContent(CHAPTER_ID);
   contentLoader.updateChapterContent(title, content);
+  if (success) {
+    setupReadingTime();
+  }
   navigation.updateNavigationLinks(CHAPTER_ID, success);
   document.title = `${config.title} - ${title}`;
 
@@ -144,14 +176,14 @@ async function initChapter() {
   const prevChapter = navigation.getPreviousChapter(CHAPTER_ID);
   const nextChapter = navigation.getNextChapter(CHAPTER_ID);
 
-  // Decorate navigation links with desktop keyboard hints
+  // Set navigation link labels
   const prevLink = document.querySelector('.nav-prev');
   const nextLink = document.querySelector('.nav-next');
-  if (prevLink && prevChapter) {
-    prevLink.innerHTML = `← Previous Chapter<span class="nav-hint">[←]</span>`;
+  if (prevLink) {
+    prevLink.textContent = '← Previous';
   }
-  if (nextLink && nextChapter) {
-    nextLink.innerHTML = `Next Chapter →<span class="nav-hint">[→]</span>`;
+  if (nextLink) {
+    nextLink.textContent = 'Next →';
   }
 
   // Register desktop keyboard & mobile touch navigation

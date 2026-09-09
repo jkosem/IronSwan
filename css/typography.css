@@ -1,10 +1,10 @@
 :root {
-  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: "Newsreader", "Times New Roman", Times, Georgia, serif;
   --font-size-base: 16px;
-  --line-height-base: 1.6;
-  --font-size-h1: 2rem;
-  --font-size-h2: 1.5rem;
-  --font-size-h3: 1.25rem;
+  --line-height-base: 1.75;
+  --font-size-h1: clamp(1.8rem, 7vw, 2.6rem);
+  --font-size-h2: clamp(1.3rem, 4.5vw, 1.6rem);
+  --font-size-h3: clamp(1.05rem, 3.2vw, 1.2rem);
 }
 
 html {
@@ -15,38 +15,41 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-size: 1rem;
+  font-size: clamp(1rem, 3.6vw, 1.08rem);
   font-weight: 400;
+  line-height: var(--line-height-base);
 }
 
 h1, h2, h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  font-weight: 600;
+  line-height: 1.15;
+  font-weight: 500;
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--font-size-h1);
+  margin-top: 0;
+  margin-bottom: clamp(1.5rem, 4.5vw, 2.25rem);
+  letter-spacing: 0.01em;
 }
 
 h2 {
   font-size: var(--font-size-h2);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin-top: clamp(2.25rem, 6vw, 3.25rem);
+  margin-bottom: 1rem;
 }
 
 h3 {
   font-size: var(--font-size-h3);
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: clamp(1.85rem, 5vw, 2.75rem);
+  margin-bottom: 0.75rem;
 }
 
 p {
-  margin-bottom: 1.5rem;
-}
-
-@media screen and (min-width: 768px) {
-  :root {
-    --font-size-base: 18px;
-    --font-size-h1: 2.5rem;
-    --font-size-h2: 1.75rem;
-    --font-size-h3: 1.5rem;
-  }
+  margin-bottom: 1.45em;
 } 

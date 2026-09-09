@@ -35,7 +35,9 @@ class TOCGenerator {
       const tocHTML = chapters.map(chapter => `
         <li class="toc-item">
           <a href="chapter-${chapter.id}.html" class="toc-link">
-            ${chapter.title}
+            <span class="ch-num">${chapter.id}</span>
+            <span class="ch-title">${chapter.title}</span>
+            <span class="ch-go" aria-hidden="true">→</span>
           </a>
         </li>
       `).join('');

@@ -31,7 +31,7 @@ class Navigation {
     if (prevLink) {
       if (prevChapter) {
         prevLink.href = `chapter-${prevChapter.id}.html`;
-        prevLink.style.display = 'block';
+        prevLink.style.display = 'inline-flex';
       } else {
         prevLink.style.display = 'none';
       }
@@ -40,7 +40,7 @@ class Navigation {
     if (nextLink) {
       if (nextChapter) {
         nextLink.href = `chapter-${nextChapter.id}.html`;
-        nextLink.style.display = 'block';
+        nextLink.style.display = 'inline-flex';
       } else {
         nextLink.style.display = 'none';
       }
