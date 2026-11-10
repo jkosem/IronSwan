@@ -1,71 +1,64 @@
+const escapeHTML = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+function safeURL(raw) {
+  const url = raw.trim();
+  if (!url || /[\u0000-\u001f\u007f]/.test(url) || /^(?:\/\/|javascript:|data:|vbscript:)/i.test(url)) return null;
+  if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !/^https?:\/\//i.test(url) && !/^mailto:/i.test(url)) return null;
+  return url;
+}
+function inline(source) {
+  const tokens = [];
+  const hold = html => { tokens.push(html); return '\uE000' + (tokens.length - 1) + '\uE001'; };
+  let s = source.replace(/\\([\\*_[\]()!])/g, (_, c) => hold(escapeHTML(c)));
+  s = s.replace(/(!?)\[([^\]\n]*)\]\(([^)\n]*)\)/g, (whole, bang, label, dest) => {
+    const url = safeURL(dest);
+    if (!url || (bang && /^mailto:/i.test(url))) return hold(escapeHTML(whole));
+    const src = bang && !/^(?:https?:\/\/|\/|images\/)/i.test(url) ? 'images/' + url : url;
+    return hold(bang ? '<img src="' + escapeHTML(src) + '" alt="' + escapeHTML(label) + '" loading="lazy" decoding="async">' : '<a href="' + escapeHTML(url) + '">' + escapeHTML(label) + '</a>');
+  });
+  s = escapeHTML(s).replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/__([^_\n]+)__/g,'<strong>$1</strong>')
+    .replace(/(^|[^\w*])\*([^*\n]+)\*(?!\w)/g,'$1<em>$2</em>')
+    .replace(/(^|[^\w_])_([^_\n]+)_(?!\w)/g,'$1<em>$2</em>');
+  return s.replace(/\uE000(\d+)\uE001/g, (_, i) => tokens[Number(i)]);
+}
 class MarkdownParser {
   parse(markdown) {
     if (!markdown) return '';
-
-    // 1. Normalize line endings
-    let text = markdown.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
-
-    // 2. Images: support relative images and avoid forcing leading /
-    text = text.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
-      let finalSrc = src;
-      if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/') && !src.startsWith('images/')) {
-        finalSrc = `images/${src}`;
+    const lines = markdown.replace(/\r\n?/g,'\n').trim().split('\n'), out = [];
+    let paragraph = [], list = null, quote = [];
+    const flushP = () => { if (paragraph.length) out.push('<p>' + inline(paragraph.join(' ')) + '</p>'); paragraph = []; };
+    const flushL = () => { if (list) out.push('<' + list.type + '>' + list.items.map(x => '<li>' + inline(x) + '</li>').join('') + '</' + list.type + '>'); list = null; };
+    const flushQ = () => { if (quote.length) out.push('<blockquote><p>' + inline(quote.join(' ')) + '</p></blockquote>'); quote = []; };
+    const flush = () => { flushP(); flushL(); flushQ(); };
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i], t = line.trim();
+      if (!t) { flush(); continue; }
+      const fence = t.match(/^(\x60{3,}|~{3,})/);
+      if (fence) {
+        flush(); const code = [];
+        while (++i < lines.length && !lines[i].trim().startsWith(fence[1])) code.push(lines[i]);
+        out.push('<pre><code>' + escapeHTML(code.join('\n')) + '</code></pre>'); continue;
       }
-      return `<img src="${finalSrc}" alt="${alt}" loading="lazy" decoding="async">`;
-    });
-
-    // 3. Links (exclude images which are already converted)
-    text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
-
-    // 4. Inline formatting: bold and italics
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    text = text.replace(/\*([^\*]+?)\*/g, '<em>$1</em>');
-
-    // 5. Headers
-    text = text.replace(/^### (.*$)/gm, '<h3>$1</h3>');
-    text = text.replace(/^## (.*$)/gm, '<h2>$1</h2>');
-    text = text.replace(/^# (.*$)/gm, '<h1>$1</h1>');
-
-    // 6. Horizontal Rules
-    text = text.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr>');
-
-    // 7. Blockquotes
-    text = text.replace(/(?:^>.*(?:\n|$))+/gm, (match) => {
-      const content = match.trim().split('\n').map(line => line.replace(/^>\s?/, '').trim()).join('<br>');
-      return `<blockquote><p>${content}</p></blockquote>\n`;
-    });
-
-    // 8. Unordered lists: group consecutive lines starting with - or *
-    text = text.replace(/(?:^[*-] .*(?:\n|$))+/gm, (match) => {
-      const items = match.trim().split('\n').map(line => {
-        const content = line.replace(/^[*-] /, '').trim();
-        return `  <li>${content}</li>`;
-      }).join('\n');
-      return `<ul>\n${items}\n</ul>\n`;
-    });
-
-    // 9. Paragraphs: split by double newlines, wrap non-block sections in <p>
-    const blocks = text.split(/\n\s*\n+/);
-    const result = blocks.map(block => {
-      const trimmed = block.trim();
-      if (!trimmed) return '';
-      if (/^<(?:h[1-6]|ul|ol|li|p|div|blockquote|img|hr)/i.test(trimmed)) {
-        return trimmed;
+      const heading = t.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/);
+      if (heading) { flush(); const n = heading[1].length; out.push('<h' + n + '>' + inline(heading[2]) + '</h' + n + '>'); continue; }
+      if (/^(?:-{3,}|\*{3,}|_{3,})$/.test(t)) { flush(); out.push('<hr>'); continue; }
+      if (/^>\s?/.test(t)) { flushP(); flushL(); quote.push(t.replace(/^>\s?/,'')); continue; }
+      flushQ();
+      const ordered = t.match(/^\d+[.)]\s+(.+)$/), unordered = t.match(/^[-*+]\s+(.+)$/);
+      if (ordered || unordered) {
+        flushP(); const type = ordered ? 'ol' : 'ul';
+        if (list && list.type !== type) flushL();
+        if (!list) list = {type,items:[]};
+        list.items.push((ordered || unordered)[1]); continue;
       }
-      const inlines = trimmed.split('\n').map(l => l.trim()).join(' ');
-      return `<p>${inlines}</p>`;
-    }).filter(Boolean);
-
-    return result.join('\n\n');
+      flushL(); paragraph.push(t);
+    }
+    flush(); return out.join('\n\n');
   }
-
-  // Extract the first H1 header to use as chapter title
   extractTitle(markdown) {
     if (!markdown) return 'Untitled Chapter';
-    const clean = markdown.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-    const titleMatch = clean.match(/^# (.+)$/m);
-    return titleMatch ? titleMatch[1].trim() : 'Untitled Chapter';
+    const match = markdown.replace(/\r\n?/g,'\n').match(/^#\s+(.+?)\s*#*\s*$/m);
+    return match ? match[1].trim() : 'Untitled Chapter';
   }
 }
-
-export default new MarkdownParser(); 
+export default new MarkdownParser();
