@@ -64,11 +64,22 @@ Save the file and refresh your browser. That's it.
 - Very mediocre at best front-end design
 - Awesome logo and cover
 
+## Security and Markdown support
+
+Markdown is rendered as text-first HTML: raw HTML is escaped, and unsafe URL schemes are rejected. Supported features include headings, paragraphs, emphasis, links, images, blockquotes, horizontal rules, numbered and bulleted lists, and fenced code blocks. This is intentionally a small Markdown subset, not full CommonMark; deeply nested lists and complex inline nesting are not supported.
+
+Each chapter is a separate HTML document. Browsers handle HTTP caching across chapters; the old in-memory prefetch feature was removed because its cache did not survive navigation.
+
+## Tests
+
+Run `node --test tests/*.test.mjs` with a recent Node.js release. No package installation or build step is required.
+
 ## Roadmap
 
 - Won't have to update the config.js files with the chapter names and will list automagically so about a minute less of typing
-- Won't have to update the CHAPTER_ID manually in each chapter file
-- More than 2 minutes of testing
+- [x] Automatically detect chapter IDs from filenames
+- [x] Add baseline automated Markdown regression tests
+- [ ] Expand tests to cover browser navigation, accessibility, and CSS
 - Some sort of interaction method that makes makes reading actually better in a browser
 - Way better front-end that is actually designed. Maybe.
 
