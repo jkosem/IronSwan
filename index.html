@@ -56,11 +56,11 @@
             const chapterTitle = chapter ? chapter.title : `Chapter ${lastChapterId}`;
             const resumeReading = document.createElement('div');
             resumeReading.className = 'resume-reading';
-            resumeReading.innerHTML = `
-                    <a href="chapter-${lastChapterId}.html" class="nav-link">
-                        Resume Reading: ${chapterTitle}
-                    </a>
-                `;
+            const link = document.createElement('a');
+            link.href = `chapter-${lastChapterId}.html`;
+            link.className = 'nav-link';
+            link.textContent = `Resume Reading: ${chapterTitle}`;
+            resumeReading.appendChild(link);
             document.querySelector('.toc').insertBefore(
                 resumeReading,
                 document.querySelector('.toc-list')
