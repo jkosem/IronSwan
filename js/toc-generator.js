@@ -1,3 +1,4 @@
+const escapeHTML = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 import config from './config.js';
 import markdownParser from './markdown-parser.js';
 
@@ -36,7 +37,7 @@ class TOCGenerator {
         <li class="toc-item">
           <a href="chapter-${chapter.id}.html" class="toc-link">
             <span class="ch-num">${chapter.id}</span>
-            <span class="ch-title">${chapter.title}</span>
+            <span class="ch-title">${escapeHTML(chapter.title)}</span>
             <span class="ch-go" aria-hidden="true">→</span>
           </a>
         </li>
@@ -46,7 +47,7 @@ class TOCGenerator {
     } catch (error) {
       tocList.innerHTML = `
         <li class="toc-status error">
-          Failed to generate table of contents: ${error.message}
+          Failed to generate table of contents: Unable to load chapter list
         </li>
       `;
     }
