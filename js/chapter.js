@@ -190,13 +190,7 @@ async function initChapter() {
   setupKeyboardNavigation(prevChapter, nextChapter);
   setupSwipeNavigation(prevChapter, nextChapter);
 
-  // Background prefetch next & previous chapters for instant 0ms transitions
-  if (nextChapter) {
-    contentLoader.prefetchChapter(nextChapter.id);
-  }
-  if (prevChapter) {
-    contentLoader.prefetchChapter(prevChapter.id);
-  }
+  // Browser HTTP caching, rather than a per-page Map, handles repeat requests.
 }
 
 // Initialize on DOM ready
