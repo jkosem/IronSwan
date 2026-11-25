@@ -194,7 +194,6 @@ svg {
 .ch-num {
   font-family: var(--font-utilitarian-mono, monospace);
   font-size: 0.8rem;
-  opacity: 0.6;
   min-width: 2em;
   font-variant-numeric: tabular-nums;
 }
@@ -269,7 +268,6 @@ svg {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  opacity: 0.7;
   margin-top: 0;
   margin-bottom: clamp(1.5rem, 4.5vw, 2.25rem);
   font-variant-numeric: tabular-nums;
@@ -322,6 +320,10 @@ svg {
 .chapter-content li {
   margin-bottom: 0.5rem;
   line-height: 1.75;
+}
+
+.chapter-content[aria-busy="true"] ~ :is(nav, footer) {
+  visibility: hidden;
 }
 
 /* Navigation styles */

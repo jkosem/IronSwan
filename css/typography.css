@@ -1,6 +1,6 @@
 :root {
   --font-primary: "Newsreader", "Times New Roman", Times, Georgia, serif;
-  --font-size-base: 16px;
+  --font-size-base: 100%;
   --line-height-base: 1.75;
   --font-size-h1: clamp(1.8rem, 7vw, 2.6rem);
   --font-size-h2: clamp(1.3rem, 4.5vw, 1.6rem);
