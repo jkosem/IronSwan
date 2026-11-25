@@ -46,8 +46,7 @@
 
 /* Global Iron Swan Resets & Base: Pure Space Black */
 body,
-[data-theme="ironswan"] body,
-[data-theme="iron-swan"] body {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) body {
   background-color: var(--is-bg);
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(63, 29, 115, 0.15) 0%, transparent 40%),
@@ -61,16 +60,14 @@ body,
 
 /* Reading Progress Bar: Iron Swan Cosmic Gradient */
 .reading-progress-bar,
-[data-theme="ironswan"] .reading-progress-bar,
-[data-theme="iron-swan"] .reading-progress-bar {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .reading-progress-bar {
   background: linear-gradient(90deg, var(--is-accent), var(--is-accent-hover));
   box-shadow: 0 0 8px rgba(176, 38, 255, 0.6);
 }
 
 /* Reading & Content Column: 38rem measure centered */
 html .container,
-[data-theme="ironswan"] .container,
-[data-theme="iron-swan"] .container {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .container {
   width: 100%;
   max-width: 38rem;
   margin: 0 auto;
@@ -80,22 +77,17 @@ html .container,
 
 /* Typography - Headings / Titles / Brand: Refined Newsreader with balanced rhythm */
 h1, h2, h3, #book-title,
-[data-theme="ironswan"] h1,
-[data-theme="iron-swan"] h1,
-[data-theme="ironswan"] h2,
-[data-theme="iron-swan"] h2,
-[data-theme="ironswan"] h3,
-[data-theme="iron-swan"] h3,
-[data-theme="ironswan"] #book-title,
-[data-theme="iron-swan"] #book-title {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h1,
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h2,
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h3,
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) #book-title {
   font-family: var(--font-serif-brand);
   color: var(--is-text-primary);
   text-rendering: optimizeLegibility;
 }
 
 h1,
-[data-theme="ironswan"] h1,
-[data-theme="iron-swan"] h1 {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h1 {
   font-size: clamp(1.8rem, 7vw, 2.6rem);
   font-weight: 500;
   line-height: 1.15;
@@ -110,8 +102,7 @@ h1,
 }
 
 h2,
-[data-theme="ironswan"] h2,
-[data-theme="iron-swan"] h2 {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h2 {
   font-size: clamp(1.3rem, 4.5vw, 1.6rem);
   font-weight: 500;
   line-height: 1.25;
@@ -126,8 +117,7 @@ h2,
 }
 
 h3,
-[data-theme="ironswan"] h3,
-[data-theme="iron-swan"] h3 {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) h3 {
   font-size: clamp(1.05rem, 3.2vw, 1.2rem);
   font-weight: 500;
   line-height: 1.3;
@@ -140,8 +130,7 @@ h3,
 }
 
 p,
-[data-theme="ironswan"] p,
-[data-theme="iron-swan"] p {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) p {
   margin-bottom: 1.45em;
   color: var(--is-text-primary);
   font-size: clamp(1rem, 3.6vw, 1.08rem);
@@ -150,8 +139,7 @@ p,
 
 /* Navigation & Header: Pitch black with glowing 1px cosmic purple border */
 html .chapter-header,
-[data-theme="ironswan"] .chapter-header,
-[data-theme="iron-swan"] .chapter-header {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-header {
   background-color: var(--is-bg);
   border-bottom: 1px solid var(--is-border);
   padding: 1rem 0;
@@ -159,27 +147,24 @@ html .chapter-header,
 }
 
 .chapter-header #book-title,
-[data-theme="ironswan"] .chapter-header #book-title,
-[data-theme="iron-swan"] .chapter-header #book-title {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-header #book-title {
   font-family: var(--font-utilitarian-mono);
   font-size: clamp(0.72rem, 2.4vw, 0.82rem);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--is-text-muted);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .chapter-header #book-title:hover,
-[data-theme="ironswan"] .chapter-header #book-title:hover,
-[data-theme="iron-swan"] .chapter-header #book-title:hover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-header #book-title:hover {
   color: var(--is-accent-hover);
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
 }
 
 /* Chapter Content Card: Cosmic dark nebula, raw 0px corners, 1px purple border */
 html .chapter-content,
-[data-theme="ironswan"] .chapter-content,
-[data-theme="iron-swan"] .chapter-content {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-content {
   background-color: var(--is-surface);
   border: 1px solid var(--is-border);
   border-radius: 0px;
@@ -191,8 +176,7 @@ html .chapter-content,
 
 /* Buttons & Actions: GeoCities rectangular, sharp corners (rounded-none), 1px solid borders */
 html .nav-link,
-[data-theme="ironswan"] .nav-link,
-[data-theme="iron-swan"] .nav-link {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .nav-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -207,7 +191,7 @@ html .nav-link,
   border: 1px solid var(--is-border);
   border-radius: 0px;
   padding: 0.75rem 1.25rem;
-  transition: all 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   text-decoration: none;
   text-align: center;
   user-select: none;
@@ -215,15 +199,13 @@ html .nav-link,
 }
 
 .nav-hint,
-[data-theme="ironswan"] .nav-hint,
-[data-theme="iron-swan"] .nav-hint {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .nav-hint {
   color: var(--is-accent-hover);
   opacity: 0.75;
 }
 
 .nav-link:hover,
-[data-theme="ironswan"] .nav-link:hover,
-[data-theme="iron-swan"] .nav-link:hover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .nav-link:hover {
   background-color: var(--is-surface-secondary);
   border-color: var(--is-accent-hover);
   color: var(--is-accent-hover);
@@ -231,14 +213,12 @@ html .nav-link,
 }
 
 .nav-link:active,
-[data-theme="ironswan"] .nav-link:active,
-[data-theme="iron-swan"] .nav-link:active {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .nav-link:active {
   border-color: var(--is-border-bright);
 }
 
 html .navigation,
-[data-theme="ironswan"] .navigation,
-[data-theme="iron-swan"] .navigation {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .navigation {
   border-top: 1px solid var(--is-border);
   padding: 1.5rem 0;
   margin-top: 2.5rem;
@@ -250,27 +230,23 @@ html .navigation,
 }
 
 html .navigation .nav-prev,
-[data-theme="ironswan"] .navigation .nav-prev,
-[data-theme="iron-swan"] .navigation .nav-prev {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .navigation .nav-prev {
   margin-right: auto;
 }
 
 html .navigation .nav-next,
-[data-theme="ironswan"] .navigation .nav-next,
-[data-theme="iron-swan"] .navigation .nav-next {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .navigation .nav-next {
   margin-left: auto;
 }
 
 /* Resume Reading link */
 .resume-reading,
-[data-theme="ironswan"] .resume-reading,
-[data-theme="iron-swan"] .resume-reading {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .resume-reading {
   margin: 1.5rem 0;
 }
 
 .resume-reading .nav-link,
-[data-theme="ironswan"] .resume-reading .nav-link,
-[data-theme="iron-swan"] .resume-reading .nav-link {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .resume-reading .nav-link {
   border-color: var(--is-accent);
   color: var(--is-text-primary);
   background-color: var(--is-surface);
@@ -278,8 +254,7 @@ html .navigation .nav-next,
 }
 
 .resume-reading .nav-link:hover,
-[data-theme="ironswan"] .resume-reading .nav-link:hover,
-[data-theme="iron-swan"] .resume-reading .nav-link:hover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .resume-reading .nav-link:hover {
   background-color: var(--is-accent);
   border-color: var(--is-accent);
   color: #040209;
@@ -289,8 +264,7 @@ html .navigation .nav-next,
 
 /* Dividers & Horizontal Rules: Cosmic Stardust line */
 hr,
-[data-theme="ironswan"] hr,
-[data-theme="iron-swan"] hr {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) hr {
   border: none;
   border-top: 1px solid var(--is-border);
   margin: 2.5rem 0;
@@ -298,8 +272,7 @@ hr,
 
 /* Blockquotes: Electric purple left-border accent with dark occult background */
 blockquote,
-[data-theme="ironswan"] blockquote,
-[data-theme="iron-swan"] blockquote {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) blockquote {
   border-left: 3px solid var(--is-accent);
   background-color: rgba(176, 38, 255, 0.08);
   padding: 1rem 1.5rem;
@@ -311,24 +284,21 @@ blockquote,
 }
 
 blockquote p,
-[data-theme="ironswan"] blockquote p,
-[data-theme="iron-swan"] blockquote p {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) blockquote p {
   margin-bottom: 0;
 }
 
 /* Links inside content: GeoCities electric purple / cyan hover */
 a,
-[data-theme="ironswan"] a,
-[data-theme="iron-swan"] a {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) a {
   color: var(--is-accent);
   text-decoration: underline;
   text-decoration-color: rgba(176, 38, 255, 0.5);
-  transition: all 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, text-shadow 0.15s ease;
 }
 
 a:hover,
-[data-theme="ironswan"] a:hover,
-[data-theme="iron-swan"] a:hover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) a:hover {
   color: var(--is-accent-hover);
   text-decoration-color: var(--is-accent-hover);
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
@@ -336,8 +306,7 @@ a:hover,
 
 /* Table of Contents: Cosmic black metal zine layout */
 html .toc,
-[data-theme="ironswan"] .toc,
-[data-theme="iron-swan"] .toc {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc {
   background-color: var(--is-surface);
   border: 1px solid var(--is-border);
   border-radius: 0px;
@@ -348,15 +317,13 @@ html .toc,
 
 @media screen and (min-width: 640px) {
   html .toc,
-  [data-theme="ironswan"] .toc,
-  [data-theme="iron-swan"] .toc {
+  :is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc {
     padding: 2rem;
   }
 }
 
 .toc h2,
-[data-theme="ironswan"] .toc h2,
-[data-theme="iron-swan"] .toc h2 {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc h2 {
   font-family: var(--font-utilitarian-mono);
   font-size: clamp(0.72rem, 2.4vw, 0.82rem);
   letter-spacing: 0.18em;
@@ -369,15 +336,13 @@ html .toc,
 }
 
 .toc-item,
-[data-theme="ironswan"] .toc-item,
-[data-theme="iron-swan"] .toc-item {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc-item {
   border-bottom: 1px solid rgba(63, 29, 115, 0.6);
   padding: 0;
 }
 
 .toc-link,
-[data-theme="ironswan"] .toc-link,
-[data-theme="iron-swan"] .toc-link {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc-link {
   color: var(--is-text-primary);
   font-family: var(--font-serif-brand);
   font-size: clamp(0.95rem, 3.2vw, 1.05rem);
@@ -391,8 +356,7 @@ html .toc,
 }
 
 .toc-link:hover,
-[data-theme="ironswan"] .toc-link:hover,
-[data-theme="iron-swan"] .toc-link:hover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .toc-link:hover {
   color: var(--is-accent-hover);
   transform: translateX(4px);
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
@@ -400,8 +364,7 @@ html .toc,
 
 /* Cover section: Space / GeoCities black metal banner */
 html .cover,
-[data-theme="ironswan"] .cover,
-[data-theme="iron-swan"] .cover {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .cover {
   border: 1px solid var(--is-border);
   background-color: var(--is-surface);
   border-radius: 0px;
@@ -413,15 +376,13 @@ html .cover,
 
 @media screen and (min-width: 640px) {
   html .cover,
-  [data-theme="ironswan"] .cover,
-  [data-theme="iron-swan"] .cover {
+  :is([data-theme="ironswan"], [data-theme="iron-swan"]) .cover {
     padding: 2.5rem 1.5rem;
   }
 }
 
 .cover h1,
-[data-theme="ironswan"] .cover h1,
-[data-theme="iron-swan"] .cover h1 {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .cover h1 {
   font-size: clamp(2rem, 8vw, 2.75rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -434,8 +395,7 @@ html .cover,
 }
 
 .cover p,
-[data-theme="ironswan"] .cover p,
-[data-theme="iron-swan"] .cover p {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .cover p {
   font-family: var(--font-utilitarian-mono);
   font-size: 0.95rem;
   color: var(--is-accent-hover);
@@ -447,8 +407,7 @@ html .cover,
 
 /* Images: sharp raw edges, 1px purple border, strictly responsive */
 img,
-[data-theme="ironswan"] img,
-[data-theme="iron-swan"] img {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) img {
   border-radius: 0px;
   border: 1px solid var(--is-border);
   max-width: 100%;
@@ -458,8 +417,7 @@ img,
 }
 
 .chapter-content img,
-[data-theme="ironswan"] .chapter-content img,
-[data-theme="iron-swan"] .chapter-content img {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-content img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -468,8 +426,7 @@ img,
 }
 
 .cover-image,
-[data-theme="ironswan"] .cover-image,
-[data-theme="iron-swan"] .cover-image {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .cover-image {
   border-radius: 0px;
   border: 1px solid var(--is-border-bright);
   box-shadow: 0 0 15px rgba(139, 44, 245, 0.3);
@@ -484,8 +441,7 @@ img,
 
 /* Footer: cosmic divider and muted mono text */
 html footer,
-[data-theme="ironswan"] footer,
-[data-theme="iron-swan"] footer {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) footer {
   border-top: 1px solid var(--is-border);
   padding: 2rem 0;
   margin-top: 3rem;
@@ -493,8 +449,7 @@ html footer,
 }
 
 #book-copyright,
-[data-theme="ironswan"] #book-copyright,
-[data-theme="iron-swan"] #book-copyright {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) #book-copyright {
   color: var(--is-text-muted);
   font-family: var(--font-utilitarian-mono);
   font-size: 0.8rem;
@@ -503,8 +458,7 @@ html footer,
 
 /* Errors & Loading States */
 .error,
-[data-theme="ironswan"] .error,
-[data-theme="iron-swan"] .error {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .error {
   border-radius: 0px;
   border: 1px solid #ff2a85;
   background-color: rgba(255, 42, 133, 0.1);
@@ -513,8 +467,7 @@ html footer,
 }
 
 .loading,
-[data-theme="ironswan"] .loading,
-[data-theme="iron-swan"] .loading {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .loading {
   color: var(--is-accent-hover);
   font-family: var(--font-utilitarian-mono);
   letter-spacing: 0.08em;
@@ -524,10 +477,8 @@ html footer,
 /* Lists */
 .chapter-content ul,
 .chapter-content ol,
-[data-theme="ironswan"] .chapter-content ul,
-[data-theme="iron-swan"] .chapter-content ul,
-[data-theme="ironswan"] .chapter-content ol,
-[data-theme="iron-swan"] .chapter-content ol {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-content ul,
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-content ol {
   color: var(--is-text-primary);
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
@@ -535,8 +486,12 @@ html footer,
 }
 
 .chapter-content li,
-[data-theme="ironswan"] .chapter-content li,
-[data-theme="iron-swan"] .chapter-content li {
+:is([data-theme="ironswan"], [data-theme="iron-swan"]) .chapter-content li {
   line-height: var(--line-height-base);
   margin-bottom: 0.5rem;
+}
+
+/* Avoid fixed-background repaint costs on touch devices. */
+@media (hover: none) and (pointer: coarse) {
+  body, :is([data-theme="ironswan"], [data-theme="iron-swan"]) body { background-attachment: scroll; }
 }

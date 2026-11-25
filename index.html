@@ -9,7 +9,7 @@
     <title>Book Title</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/theme.css">
@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div class="cover">
-            <img src="images/cover-image.jpg" alt="Book Cover" class="cover-image" width="320" height="427" fetchpriority="high">
+            <img src="images/cover-image.jpg" alt="Book Cover" class="cover-image" width="320" height="427" fetchpriority="high" decoding="async">
             <h1 id="book-title">Book Title</h1>
             <p id="book-author">by Author Name</p>
         </div>
@@ -56,11 +56,11 @@
             const chapterTitle = chapter ? chapter.title : `Chapter ${lastChapterId}`;
             const resumeReading = document.createElement('div');
             resumeReading.className = 'resume-reading';
-            resumeReading.innerHTML = `
-                    <a href="chapter-${lastChapterId}.html" class="nav-link">
-                        Resume Reading: ${chapterTitle}
-                    </a>
-                `;
+            const link = document.createElement('a');
+            link.href = `chapter-${lastChapterId}.html`;
+            link.className = 'nav-link';
+            link.textContent = `Resume Reading: ${chapterTitle}`;
+            resumeReading.appendChild(link);
             document.querySelector('.toc').insertBefore(
                 resumeReading,
                 document.querySelector('.toc-list')

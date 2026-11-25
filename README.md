@@ -19,7 +19,7 @@ The chapter HTML files in the root simply load their corresponding Markdown file
 To add a new chapter:
 1. Create `markdown/chapter-06.md`.
 2. Copy any existing `chapter-*.html` file to `chapter-06.html` (no script edits required!).
-3. Add the chapter entry to `js/config.js` under `chapters`.
+3. Add the chapter entry to `js/config.js` under `chapters`. The configured title appears in the table of contents immediately, without downloading the Markdown; keep it in sync with the chapter heading.
 
 ## Themes
 
@@ -64,11 +64,28 @@ Save the file and refresh your browser. That's it.
 - Very mediocre at best front-end design
 - Awesome logo and cover
 
+## Security and Markdown support
+
+Markdown is rendered as text-first HTML: raw HTML is escaped, and unsafe URL schemes are rejected. Supported features include headings, paragraphs, emphasis, links, images, blockquotes, horizontal rules, numbered and bulleted lists, and fenced code blocks. This is intentionally a small Markdown subset, not full CommonMark; deeply nested lists and complex inline nesting are not supported.
+
+Each chapter is a separate HTML document. Browsers handle HTTP caching across chapters; the old in-memory prefetch feature was removed because its cache did not survive navigation.
+
+## Tests
+
+Run `node --test tests/*.test.mjs` with a recent Node.js release. No package installation or build step is required.
+
+## Performance
+
+The table of contents uses configuration only; chapter pages load their own Markdown. Scroll progress uses a transform with cached page dimensions, refreshed when content changes. Both themes retain their existing CSS entry point. Google Fonts uses swap and only requested styles; the cover retains its dimensions and high fetch priority.
+
+Run the Node regression and performance budget tests with `node --test tests/*.test.mjs`. Budgets apply to gzip-compressed first-party CSS and JavaScript source (10 KiB each per page, excluding fonts and images). Browser targets: Lighthouse mobile performance 95+, LCP under 1.5 s as an aspirational target, CLS below 0.1; measure on the deployed site using cold-cache mobile throttling. These are targets, not measured results. Keep cover images compressed and enable HTTP compression and caching at the host.
+
 ## Roadmap
 
 - Won't have to update the config.js files with the chapter names and will list automagically so about a minute less of typing
-- Won't have to update the CHAPTER_ID manually in each chapter file
-- More than 2 minutes of testing
+- [x] Automatically detect chapter IDs from filenames
+- [x] Add baseline automated Markdown regression tests
+- [ ] Expand tests to cover browser navigation, accessibility, and CSS
 - Some sort of interaction method that makes makes reading actually better in a browser
 - Way better front-end that is actually designed. Maybe.
 

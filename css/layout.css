@@ -40,11 +40,13 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 0%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
   height: 3px;
   background-color: var(--color-primary, #bb86fc);
   z-index: 9999;
-  transition: width 0.08s linear;
+  transition: transform 0.08s linear;
   pointer-events: none;
 }
 
@@ -256,8 +258,7 @@ svg {
   margin-bottom: clamp(1.5rem, 4.5vw, 2.25rem);
 }
 
-.chapter-content h1.has-reading-time,
-.chapter-content h1:has(+ .chapter-reading-time) {
+.chapter-content h1.has-reading-time {
   margin-bottom: 0.4rem;
 }
 

@@ -1,7 +1,6 @@
 import config from './config.js';
 import contentLoader from './content-loader.js';
 import navigation from './navigation.js';
-import stateManager from './state-manager.js';
 
 /**
  * Auto-detect the current chapter ID from URL path, query params, or fallback to first chapter.
@@ -40,22 +39,31 @@ function setupProgressBar() {
   }
 
   let ticking = false;
+  let docHeight = 0;
   const updateProgress = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
-    bar.style.width = `${progress}%`;
+    bar.style.transform = `scaleX(${progress / 100})`;
     ticking = false;
   };
 
-  window.addEventListener('scroll', () => {
+  const schedule = () => {
     if (!ticking) {
       window.requestAnimationFrame(updateProgress);
       ticking = true;
     }
-  }, { passive: true });
-
-  updateProgress();
+  };
+  const measure = () => {
+    docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    schedule();
+  };
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', measure, { passive: true });
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(measure).observe(document.body);
+  document.fonts?.ready.then(measure);
+  document.addEventListener('load', measure, true);
+  measure();
+  return measure;
 }
 
 /**
@@ -70,7 +78,7 @@ function setupReadingTime() {
   if (existing) existing.remove();
 
   // Calculate word count from chapter content (approx. 220 words per minute)
-  const text = contentEl.innerText || contentEl.textContent || '';
+  const text = Array.from(contentEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,pre')).map(el => el.textContent).join(' ') || contentEl.textContent || '';
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(words / 220));
 
@@ -161,7 +169,7 @@ async function initChapter() {
   if (copyrightEl) copyrightEl.textContent = config.copyright;
 
   // Mount reading progress indicator
-  setupProgressBar();
+  const refreshProgress = setupProgressBar();
 
   // Load and render chapter markdown
   const { title, content, success } = await contentLoader.loadChapterContent(CHAPTER_ID);
@@ -170,9 +178,10 @@ async function initChapter() {
     setupReadingTime();
   }
   navigation.updateNavigationLinks(CHAPTER_ID, success);
+  refreshProgress();
   document.title = `${config.title} - ${title}`;
 
-  // Get neighboring chapters for shortcuts & prefetching
+  // Get neighboring chapters for shortcuts
   const prevChapter = navigation.getPreviousChapter(CHAPTER_ID);
   const nextChapter = navigation.getNextChapter(CHAPTER_ID);
 
@@ -190,13 +199,7 @@ async function initChapter() {
   setupKeyboardNavigation(prevChapter, nextChapter);
   setupSwipeNavigation(prevChapter, nextChapter);
 
-  // Background prefetch next & previous chapters for instant 0ms transitions
-  if (nextChapter) {
-    contentLoader.prefetchChapter(nextChapter.id);
-  }
-  if (prevChapter) {
-    contentLoader.prefetchChapter(prevChapter.id);
-  }
+  // Browser HTTP caching, rather than a per-page Map, handles repeat requests.
 }
 
 // Initialize on DOM ready
