@@ -19,7 +19,7 @@ The chapter HTML files in the root simply load their corresponding Markdown file
 To add a new chapter:
 1. Create `markdown/chapter-06.md`.
 2. Copy any existing `chapter-*.html` file to `chapter-06.html` (no script edits required!).
-3. Add the chapter entry to `js/config.js` under `chapters`.
+3. Add the chapter entry to `js/config.js` under `chapters`. The configured title appears in the table of contents immediately, without downloading the Markdown; keep it in sync with the chapter heading.
 
 ## Themes
 
@@ -73,6 +73,12 @@ Each chapter is a separate HTML document. Browsers handle HTTP caching across ch
 ## Tests
 
 Run `node --test tests/*.test.mjs` with a recent Node.js release. No package installation or build step is required.
+
+## Performance
+
+The table of contents uses configuration only; chapter pages load their own Markdown. Scroll progress uses a transform with cached page dimensions, refreshed when content changes. Both themes retain their existing CSS entry point. Google Fonts uses swap and only requested styles; the cover retains its dimensions and high fetch priority.
+
+Run the Node regression and performance budget tests with `node --test tests/*.test.mjs`. Budgets apply to gzip-compressed first-party CSS and JavaScript source (10 KiB each per page, excluding fonts and images). Browser targets: Lighthouse mobile performance 95+, LCP under 1.5 s as an aspirational target, CLS below 0.1; measure on the deployed site using cold-cache mobile throttling. These are targets, not measured results. Keep cover images compressed and enable HTTP compression and caching at the host.
 
 ## Roadmap
 
