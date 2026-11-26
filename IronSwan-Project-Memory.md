@@ -25,6 +25,8 @@ The goal is to make attractive, readable web books that authors can adapt and ho
 - Every PR requiring owner review must contain an AI-generated, change-specific, unchecked GitHub acceptance checklist in its description, with preview links, concrete actions and expected observable outcomes. Keep technical results separate. Record failures and untested items; fix them or obtain explicit owner acceptance of exceptions before merge. Never pre-tick owner tests or substitute green CI for owner acceptance. Prefer one cohesive PR per release. Use the [PR template](.github/pull_request_template.md).
 - Keep [CHANGELOG.md](CHANGELOG.md) accurate; do not declare a release until approved and published/tagged. Preserve the historical v1.0 baseline and use v1.1 onward for user outcomes.
 
+- Preserve the README's original informal, candid, self-deprecating writing style and the designer's voice. Keep current instructions accurate and approachable; do not turn the public README into corporate product documentation. Archive superseded wording under dated/versioned README snapshots rather than deleting it. Keep historical text verbatim and distinguish historical instructions from current ones. Dates identify snapshots, not necessarily original authorship dates.
+
 ## 3. Current architecture and test baseline
 
 - `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. To add a chapter today, create matching Markdown and HTML files and add metadata in `js/config.js`.

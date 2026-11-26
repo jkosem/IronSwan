@@ -13,7 +13,7 @@ This records user outcomes and release status. The [roadmap](ROADMAP.md) describ
 **Pending owner acceptance — [PR #4](https://github.com/jkosem/IronSwan/pull/4)**
 
 - Improved reading accessibility, more stable chapter loading and a smaller cover image.
-- User-centred versioned roadmap, project memory alignment and trackable owner acceptance testing.
+- User-centred versioned roadmap, project memory alignment and trackable owner acceptance testing. The README keeps its informal voice and archives earlier wording verbatim under dated snapshots.
 
 The PR reports 14 passing tests and lab improvements; owner browser acceptance and required CI must be completed before release. No release date or tag is claimed here.
 

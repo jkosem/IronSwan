@@ -39,4 +39,4 @@ The owner is product owner, design director and final acceptance tester. AI hand
 
 ## Repository documents
 
-README.md: public introduction and instructions. ROADMAP.md: current product milestones. CHANGELOG.md: release outcomes, pending changes and release status. IronSwan-Project-Memory.md: constraints, decisions, technical history and context. Read roadmap and memory before each phase; check live repository state. Keep release history accurate, and do not restart completed work.
+README.md: public introduction and instructions, in the owner's informal voice, with superseded writing preserved in dated/versioned historical snapshots. ROADMAP.md: current product milestones. CHANGELOG.md: release outcomes, pending changes and release status. IronSwan-Project-Memory.md: constraints, decisions, technical history and context. Read roadmap and memory before each phase; check live repository state. Keep release history accurate, and do not restart completed work.
