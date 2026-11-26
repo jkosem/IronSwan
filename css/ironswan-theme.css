@@ -133,7 +133,6 @@ p,
 :is([data-theme="ironswan"], [data-theme="iron-swan"]) p {
   margin-bottom: 1.45em;
   color: var(--is-text-primary);
-  font-size: clamp(1rem, 3.6vw, 1.08rem);
   line-height: 1.75;
 }
 
