@@ -26,13 +26,13 @@ A story begins when ordinary life is irrevocably destabilized. This disturbance 
 
 ### The Point of No Return
 
-Too often, stories sag in the early chapters because characters can simply walk away from trouble. A robust plot deliberately burns the bridges behind the travelers. By committing to an irrevocable action—crossing a guarded border, speaking an unforgivable truth, or breaking a sacred seal—the character steps past the threshold into an alien landscape where the old rules no longer apply.
+Too often, stories sag in the early chapters because characters can simply walk away from trouble. A robust plot deliberately burns the bridges behind the travelers. By committing to an irrevocable action-crossing a guarded border, speaking an unforgivable truth, or breaking a sacred seal-the character steps past the threshold into an alien landscape where the old rules no longer apply.
 
 > Pacing is not speed; pacing is variation. A thunderous battle loses all power if it is not preceded by the quiet, breath-holding silence of the watchtower before dawn.
 
 ### The Midpoint Shift
 
-At the exact center of the narrative, the nature of the struggle must change. Prior to the midpoint, characters are typically reactive—dodging blows, scrambling to survive, and operating under false assumptions about who their real adversary is. At the midpoint, a truth is unveiled, a devastating defeat occurs, or a hidden cost is revealed. The protagonist shifts from defense to proactive offense, changing the rules of engagement.
+At the exact center of the narrative, the nature of the struggle must change. Prior to the midpoint, characters are typically reactive-dodging blows, scrambling to survive, and operating under false assumptions about who their real adversary is. At the midpoint, a truth is unveiled, a devastating defeat occurs, or a hidden cost is revealed. The protagonist shifts from defense to proactive offense, changing the rules of engagement.
 
 ## Modulating Tension and Pacing
 

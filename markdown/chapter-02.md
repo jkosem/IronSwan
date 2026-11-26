@@ -6,7 +6,7 @@ To craft a figure that lives beyond the margins of the screen, a writer must dig
 
 The engine of personal transformation lies in the foundational tension between conscious desire and subconscious need. What a character wants is tangible, immediate, and usually wrong for their spiritual survival. What they need is painful, elusive, and requires dismantling their established worldview.
 
-Consider the classic archetype of the ambitious strategist. On the surface, their goal is uncomplicated: secure power, protect their house, and outmaneuver every rival at court. They pursue this ambition with calculating ruthlessness. Yet their underlying need is vulnerability—the terrifying admission that without genuine trust, victory is merely a solitary prison. The tension between their outward quest and their inner starvation provides the rhythm of every scene.
+Consider the classic archetype of the ambitious strategist. On the surface, their goal is uncomplicated: secure power, protect their house, and outmaneuver every rival at court. They pursue this ambition with calculating ruthlessness. Yet their underlying need is vulnerability-the terrifying admission that without genuine trust, victory is merely a solitary prison. The tension between their outward quest and their inner starvation provides the rhythm of every scene.
 
 > Characters become unforgettable when their greatest strength and their fatal flaw are two faces of the exact same coin.
 
@@ -26,7 +26,7 @@ These contradictions should not be random eccentricities tossed in for quirky fl
 
 ## Dialogue as Action
 
-In lesser stories, dialogue serves primarily as an informational delivery vehicle—characters explaining the world to one another so the reader understands the lore. In masterworks, dialogue is combat, seduction, evasion, and negotiation. People rarely say precisely what they mean; they speak to deflect scrutiny, protect status, or subtly compel another into doing their bidding.
+In lesser stories, dialogue serves primarily as an informational delivery vehicle-characters explaining the world to one another so the reader understands the lore. In masterworks, dialogue is combat, seduction, evasion, and negotiation. People rarely say precisely what they mean; they speak to deflect scrutiny, protect status, or subtly compel another into doing their bidding.
 
 ### Subtext and Silence
 

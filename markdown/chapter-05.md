@@ -1,6 +1,6 @@
 The final chapter of a book carries a weight unlike any that came before it. A reader will forgive a stumbling opening scene, an awkward transition in the middle chapters, or an occasional detour into excessive description, but they will never forgive a hollow conclusion. The ending is the verdict. It is the final lens that retrospectively assigns meaning to every trial, sacrifice, and tear shed across the preceding pages.
 
-A story does not end merely because the plot questions have been answered or the villain has fallen from the parapet. A true ending delivers emotional closure—not by wrapping every loose thread in neat satin ribbons, but by giving the reader the sense that something real, permanent, and irrevocable has taken place.
+A story does not end merely because the plot questions have been answered or the villain has fallen from the parapet. A true ending delivers emotional closure-not by wrapping every loose thread in neat satin ribbons, but by giving the reader the sense that something real, permanent, and irrevocable has taken place.
 
 ## The Resonance of the Aftermath
 
@@ -18,9 +18,9 @@ Allowing the pace to gently decelerate lets the emotional gravity settle into th
 
 ## Completing the Emotional Circle
 
-The most satisfying endings frequently employ circularity—subtle echoes of the opening movement that measure the immense distance traveled.
+The most satisfying endings frequently employ circularity-subtle echoes of the opening movement that measure the immense distance traveled.
 
-When you return your protagonist to the physical place where their journey began—a humble farmhouse, a quiet harbor, or a drafty library—the physical surroundings may look identical, but the person beholding them is fundamentally changed. The child who stood on the dock gazing outward with naive longing has returned as a weathered navigator who understands the bitter cost of the sea.
+When you return your protagonist to the physical place where their journey began-a humble farmhouse, a quiet harbor, or a drafty library-the physical surroundings may look identical, but the person beholding them is fundamentally changed. The child who stood on the dock gazing outward with naive longing has returned as a weathered navigator who understands the bitter cost of the sea.
 
 > An ending should not leave the reader with questions about what happened, but with endless wonder about who these people will become next.
 
@@ -33,7 +33,7 @@ The final sentence of a book is the last note of a symphony. It lingers in the s
 When crafting your closing passages:
 
 1. **Strip Away Adverbs and Explanations:** Let plain verbs and evocative nouns bear the emotional load. Avoid explaining to the reader how they ought to feel.
-2. **Focus on Sensory Anchors:** Ground the final moment in something tangible—the rustle of dry leaves along a stone road, the fading glow of dying embers, or the solitary chime of a chapel bell across misty waters.
+2. **Focus on Sensory Anchors:** Ground the final moment in something tangible-the rustle of dry leaves along a stone road, the fading glow of dying embers, or the solitary chime of a chapel bell across misty waters.
 3. **Leave Space for Silence:** Resist the temptation to add one more witty remark or philosophical summation. When the emotional truth has landed, step away and let the curtain fall.
 
 ## Turning the Final Page

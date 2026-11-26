@@ -1,4 +1,4 @@
-The most persuasive fictional worlds do not announce themselves through encyclopedic lectures or multi-page appendices detailing historical dynasties. Instead, they seep into the reader’s consciousness like mountain fog—felt in the damp chill of the cobblestones, the sting of brine on an autumn wind, and the unspoken customs whispered in a roadside tavern.
+The most persuasive fictional worlds do not announce themselves through encyclopedic lectures or multi-page appendices detailing historical dynasties. Instead, they seep into the reader’s consciousness like mountain fog-felt in the damp chill of the cobblestones, the sting of brine on an autumn wind, and the unspoken customs whispered in a roadside tavern.
 
 World building is the art of crafting context. It provides the physical soil from which your narrative grows and the cultural atmosphere your characters inhale with every breath. When done masterfully, the world feels older than the story being told, stretching far beyond the edges of the immediate scene into vast, mysterious horizons.
 
@@ -46,4 +46,4 @@ Follow the coin. How does wealth move from the laborers who dig ore from dark sh
 
 The fastest way to immerse a reader in an unfamiliar environment is through the five senses. Avoid relying solely on visual descriptions. What does the marketplace smell like? Is it burning cedar, wet fleece, crushed fennel seeds, and roasting mutton? What sounds filter through the tavern shutters at twilight? The clink of horseshoes on flint, the distant clatter of a waterwheel, and the call of migrating geese overhead anchor the imagination in visceral reality.
 
-By weaving physical geography, restrained exposition, social friction, and rich sensory texture together, your world transforms into an authentic, breathing ecosystem—a place the reader can step into, explore, and remember long after the book is closed.
+By weaving physical geography, restrained exposition, social friction, and rich sensory texture together, your world transforms into an authentic, breathing ecosystem-a place the reader can step into, explore, and remember long after the book is closed.

@@ -1,4 +1,4 @@
-Welcome to the digital book. For centuries, the codex—bound paper between two stiff boards—held an unchallenged monopoly over long-form prose. It was portable, durable, and required no battery. Yet as the screen swallowed our letters, newspapers, and conversations, long-form literature found itself adrift between two awkward extremes: the closed walled gardens of proprietary e-reader formats and the chaotic, hyperlinked frenzy of standard web pages.
+Welcome to the digital book. For centuries, the codex-bound paper between two stiff boards-held an unchallenged monopoly over long-form prose. It was portable, durable, and required no battery. Yet as the screen swallowed our letters, newspapers, and conversations, long-form literature found itself adrift between two awkward extremes: the closed walled gardens of proprietary e-reader formats and the chaotic, hyperlinked frenzy of standard web pages.
 
 Iron Swan began as an exploration into a quiet middle path. It asks a simple question: what happens when we treat a collection of plain Markdown documents as a book, using only standard web technologies, hosted on your own server, completely free of corporate platforms, tracking pixels, and bloated JavaScript bundles?
 
@@ -18,7 +18,7 @@ Extended reading in a browser presents unique ergonomics. Unlike a physical book
 
 ### The Measure and Rhythm
 
-The ideal reading column—often referred to as the measure—should comfortably accommodate sixty to seventy-five characters per line. If the line is too long, the reader's eye struggles to track back to the start of the next line; if too short, the rhythm becomes jerky and disjointed. 
+The ideal reading column-often referred to as the measure-should comfortably accommodate sixty to seventy-five characters per line. If the line is too long, the reader's eye struggles to track back to the start of the next line; if too short, the rhythm becomes jerky and disjointed. 
 
 Iron Swan employs a thirty-eight rem measure, grounding the reading experience in classical book design traditions while remaining fluid across mobile viewports. The typography relies on high-quality editorial serif type for the prose, paired with utilitarian monospace accents for metadata, chapter numbering, and navigation controls.
 
@@ -41,4 +41,4 @@ To create your own book, your workflow remains focused entirely on writing:
 3. Configure your book title, author attribution, and chapter ordering in a single configuration file.
 4. Customize your visual aesthetic using modular CSS themes, from stark void palettes to earthy editorial tones.
 
-The chapters that follow explore the craft of long-form writing—from breathing life into characters and constructing believable worlds, to orchestrating dramatic tension and landing a memorable conclusion. Whether you are assembling a technical manual, a fantasy epic, or a personal memoir, the platform is designed to let your words speak for themselves.
+The chapters that follow explore the craft of long-form writing-from breathing life into characters and constructing believable worlds, to orchestrating dramatic tension and landing a memorable conclusion. Whether you are assembling a technical manual, a fantasy epic, or a personal memoir, the platform is designed to let your words speak for themselves.

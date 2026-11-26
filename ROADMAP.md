@@ -1,4 +1,4 @@
-# IronSwan — product roadmap
+# IronSwan - product roadmap
 
 Approved product direction, 26 November 2026. Future milestones are flexible; no release dates are committed.
 

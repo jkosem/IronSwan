@@ -70,7 +70,7 @@ Save the file and refresh your browser. That's it.
 
 ## Versions
 
-The original working template was called v1 (historical v1.0). The November work landed in [PR #4](https://github.com/jkosem/IronSwan/pull/4). That’s v1.1 — a reliable web book. Its owner checklist is complete and the release tag is pending. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
+The original working template was called v1 (historical v1.0). The November work landed in [PR #4](https://github.com/jkosem/IronSwan/pull/4). That’s v1.1 - a reliable web book. Its owner checklist is complete and the release tag is pending. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
 
 ## Security and Markdown support
 
@@ -96,7 +96,7 @@ The [project memory](IronSwan-Project-Memory.md) records standing constraints, d
 
 ## “Development” history
 
-### 26 November 2026 — v1.1 (in progress)
+### 26 November 2026 - v1.1 (in progress)
 
 There is now a plan. The idea is to make the book better for the person reading it, writing it or designing it, rather than just accumulating more code. Each version should do something useful, and the designer should be able to test it in a browser. The robots can do the technical testing.
 
@@ -116,9 +116,9 @@ MIT License
 
 Copyright (c) 2025 Jim Kosem
 
-## README archive — what it was like at the time
+## README archive - what it was like at the time
 
-### 26 November 2026 — adding chapters in v1.1
+### 26 November 2026 - adding chapters in v1.1
 
 <details>
 <summary>Previous authoring instructions</summary>
@@ -129,7 +129,7 @@ There is a Markdown directory. You put your chapters in Markdown files there. Th
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
 
-The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
+The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore-the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
 
 To add a new chapter:
 1. Create `markdown/chapter-06.md`.
@@ -141,7 +141,7 @@ To add a new chapter:
 
 These are historical snapshots, not current setup instructions. Original wording, spelling, jokes, links and old plans are preserved. Dates identify the repository snapshots, not necessarily when each sentence was first written.
 
-### 26 November 2026 — before the new roadmap (v1.1 development)
+### 26 November 2026 - before the new roadmap (v1.1 development)
 
 <details>
 <summary>Read the previous README in full</summary>
@@ -162,7 +162,7 @@ There is a Markdown directory. You put your chapters in Markdown files there.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
 
-The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
+The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore-the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
 
 To add a new chapter:
 1. Create `markdown/chapter-06.md`.
@@ -263,7 +263,7 @@ Copyright (c) 2025 Jim Kosem
 
 </details>
 
-### 20 October 2026 — v1 (before the November work)
+### 20 October 2026 - v1 (before the November work)
 
 <details>
 <summary>Read the original v1 README in full</summary>
@@ -284,7 +284,7 @@ There is a Markdown directory. You put your chapters in Markdown files there.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
 
-The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
+The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore-the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
 
 To add a new chapter:
 1. Create `markdown/chapter-06.md`.
