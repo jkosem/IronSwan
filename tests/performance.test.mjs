@@ -18,12 +18,12 @@ for (const theme of ['ironswan', 'coldforest']) {
   });
 }
 test('chapter JS stays within 10 KiB gzip', async () => {
-  await budget(['js/config.js', 'js/chapter.js', 'js/content-loader.js', 'js/markdown-parser.js', 'js/navigation.js', 'js/state-manager.js'], 10 * kib);
+  await budget(['js/book.js', 'js/config.js', 'js/chapter.js', 'js/content-loader.js', 'js/markdown-parser.js', 'js/navigation.js', 'js/state-manager.js'], 10 * kib);
 });
 test('home JS stays within 10 KiB gzip including inline module', async () => {
   const html = await read('index.html');
   const inline = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
-  const modules = await Promise.all(['js/config.js', 'js/toc-generator.js', 'js/state-manager.js'].map(read));
+  const modules = await Promise.all(['js/book.js', 'js/config.js', 'js/toc-generator.js', 'js/state-manager.js'].map(read));
   assert.ok([...modules, inline].reduce((sum, s) => sum + gzipSync(s).length, 0) <= 10 * kib);
 });
 test('table of contents renders configured titles without network requests', async () => {
@@ -37,8 +37,8 @@ test('table of contents renders configured titles without network requests', asy
   try {
     globalThis.document = { querySelector: () => list, createElement: element, createDocumentFragment: () => element('fragment') };
     globalThis.fetch = () => { throw new Error('TOC must not fetch'); };
-    const config = dataURL('export default {chapters:[{id:"01",title:"<safe>"}]}');
-    const source = (await read('js/toc-generator.js')).replace("'./config.js'", JSON.stringify(config));
+    const config = dataURL('export const chapterURL = chapter => "chapter-" + chapter.id + ".html"; export default {chapters:[{id:"01",title:"<safe>"}]}');
+    const source = (await read('js/toc-generator.js')).replace("'./book.js'", JSON.stringify(config));
     const { default: toc } = await import(dataURL(source));
     await toc.generateTOC();
     const link = list.children[0].children[0].children[0];

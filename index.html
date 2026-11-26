@@ -36,18 +36,24 @@
     </div>
 
     <script type="module">
-        import config from './js/config.js';
+        import config, { chapterURL } from './js/book.js';
         import tocGenerator from './js/toc-generator.js';
         import stateManager from './js/state-manager.js';
 
         // Update page with book info
         document.getElementById('book-title').textContent = config.title;
-        document.getElementById('book-author').textContent = `by ${config.author}`;
+        document.getElementById('book-author').textContent = config.author ? `by ${config.author}` : '';
         document.getElementById('book-copyright').textContent = config.copyright;
         document.title = `${config.title} - Table of Contents`;
 
         // Generate TOC
-        tocGenerator.generateTOC();
+        if (config.chapters.length) {
+            tocGenerator.generateTOC();
+        } else {
+            const message = document.createElement('p');
+            message.textContent = config.error || 'No chapters yet.';
+            document.querySelector('.toc-list').replaceWith(message);
+        }
 
         // Check for last read chapter
         const lastChapterId = stateManager.getLastChapter();
@@ -57,7 +63,7 @@
             const resumeReading = document.createElement('div');
             resumeReading.className = 'resume-reading';
             const link = document.createElement('a');
-            link.href = `chapter-${lastChapterId}.html`;
+            link.href = chapterURL(chapter);
             link.className = 'nav-link';
             link.textContent = `Reopen chapter: ${chapterTitle}`;
             resumeReading.appendChild(link);

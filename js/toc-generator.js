@@ -1,17 +1,17 @@
-import config from './config.js';
+import config, { chapterURL } from './book.js';
 
 class TOCGenerator {
   generateTOC() {
     const list = document.querySelector('.toc-list');
     if (!list) return;
     const fragment = document.createDocumentFragment();
-    for (const chapter of config.chapters) {
+    for (const [index, chapter] of config.chapters.entries()) {
       const item = document.createElement('li');
       item.className = 'toc-item';
       const link = document.createElement('a');
       link.className = 'toc-link';
-      link.href = 'chapter-' + encodeURIComponent(chapter.id) + '.html';
-      for (const [className, value] of [['ch-num', chapter.id], ['ch-title', chapter.title || 'Chapter ' + chapter.id], ['ch-go', '→']]) {
+      link.href = chapterURL(chapter);
+      for (const [className, value] of [['ch-num', config.usesBookFile ? String(index + 1).padStart(2, '0') : chapter.id], ['ch-title', chapter.title || 'Chapter ' + chapter.id], ['ch-go', '→']]) {
         const span = document.createElement('span');
         span.className = className;
         span.textContent = value;

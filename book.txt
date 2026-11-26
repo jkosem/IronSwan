@@ -1,0 +1,9 @@
+Title: Iron Swan
+Author: Halfman
+Copyright: ©2025 Halfman / Jim Kosem
+
+chapter-01.md | Introduction
+chapter-02.md | Character Development
+chapter-03.md | World Building
+chapter-04.md | Plot Structure
+chapter-05.md | The Last Chapter

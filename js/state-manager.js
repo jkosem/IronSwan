@@ -1,4 +1,4 @@
-import config from './config.js';
+import config, { resolveChapterId } from './book.js';
 
 class StateManager {
   constructor() {
@@ -10,6 +10,7 @@ class StateManager {
     try {
       const data = {
         chapterId,
+        format: 2,
         timestamp: new Date().getTime()
       };
       localStorage.setItem(this.storageKey, JSON.stringify(data));
@@ -36,12 +37,13 @@ class StateManager {
       }
 
       // Verify that the chapter exists in config
-      const chapterExists = config.chapters.some(chapter => chapter.id === data.chapterId);
+      const id = data.format === 2 ? data.chapterId : resolveChapterId(data.chapterId);
+      const chapterExists = config.chapters.some(chapter => chapter.id === id);
       if (!chapterExists) {
         return null;
       }
 
-      return data.chapterId;
+      return id;
     } catch (error) {
       console.warn('Failed to load reading state:', error);
       return null;

@@ -2,6 +2,10 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
+## In review — v1.2 · An easy book to create
+
+Authors set the byline and ordered chapter list in `book.txt`. One shared reader opens new Markdown chapters. Chapter titles and numbering follow the list, and editing a title or order preserves bookmarks.
+
 ## v1.1 — A reliable web book
 
 **Already merged into main (25 November 2026)**

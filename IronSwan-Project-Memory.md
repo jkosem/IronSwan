@@ -29,7 +29,7 @@ The goal is to make attractive, readable web books that authors can adapt and ho
 
 ## 3. Current architecture and test baseline
 
-- `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. To add a chapter today, create matching Markdown and HTML files and add metadata in `js/config.js`.
+- `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. In v1.1, to add a chapter, create matching Markdown and HTML files and add metadata in `js/config.js`.
 - `js/toc-generator.js` uses configured titles without downloading chapters. Keep configuration and Markdown headings synchronized until a better approach is approved.
 - CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `coldforest-theme.css`.
 - Markdown parser deliberately supports a subset (not complete CommonMark). Raw HTML escaped, unsafe URL schemes rejected; deeply nested lists and complex inline nesting remain unsupported. Do not imply arbitrary untrusted Markdown is comprehensively audited.
@@ -70,9 +70,9 @@ The README notes an earlier Claude-assisted spec and three restarts in the devel
 
 The [product roadmap](ROADMAP.md) defines v1.0 (historical working baseline), v1.1 (reliability), v1.2 (authoring), v1.3 (reading experience), v1.4 (book identity), v1.5 (independent publishing), and v2.0 (maturity). Dates are intentionally unspecified. The original v1.0 baseline is [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac) (20 October 2026). No existing release tags or GitHub Releases were found on 26 November.
 
-The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c23065a0fd0d81942cef14b9cb9d911b432c1cf1). The owner completed the [PR #4](https://github.com/jkosem/IronSwan/pull/4) checklist and [GitHub Actions](https://github.com/jkosem/IronSwan/actions/runs/45890601434) passed on main. A fresh checkout passed all 14 tests. Tag publication is pending. Next decision is the owner's review of the proposed v1.2 authoring workflow.
+The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c23065a0fd0d81942cef14b9cb9d911b432c1cf1). The owner completed the [PR #4](https://github.com/jkosem/IronSwan/pull/4) checklist and [GitHub Actions](https://github.com/jkosem/IronSwan/actions/runs/45890601434) passed on main. A fresh checkout passed all 14 tests. Tag publication is pending. The owner approved the v1.2 book.txt workflow. PR #8 implements it for acceptance testing.
 
-For v1.2, preserve no-fetch TOC behavior and evaluate authoring simplification before committing to any particular metadata architecture. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
+In v1.2, new books use book.txt and a shared chapter reader. The contents loads the list without downloading chapter bodies. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
 ## 7. Operating instruction for future Iron Swan project chats
 

@@ -1,5 +1,3 @@
-# Plot Structure
-
 If character is the soul of storytelling and setting is the landscape, plot is the gravitational current that drags everything forward. A plot is not a sequence of disparate events tied together by the word "and"; it is a chain reaction forged in the fire of cause and effect, linked relentlessly by "therefore" and "but."
 
 Without structure, even the most poetic prose and vibrant cast will eventually meander into narrative quicksand. Structure is not a rigid formula designed to stifle artistic inspiration; rather, it is the invisible scaffolding that allows dramatic tension to accumulate, swell, and detonate with maximum emotional velocity.
