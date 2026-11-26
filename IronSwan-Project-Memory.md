@@ -1,4 +1,4 @@
-# Iron Swan — project memory
+# Iron Swan - project memory
 
 Baseline verified: 26 November 2026. Product roadmap and acceptance process approved by the owner on 26 November 2026. Living reference; check live GitHub status before acting. Owner preferences, historical facts and proposed future work are distinguished below.
 
