@@ -2,7 +2,9 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
-## In review — v1.2 · An easy book to create
+## v1.2 — An easy book to create
+
+Accepted and merged on 26 November 2026 at [9d8fb27](https://github.com/jkosem/IronSwan/commit/9d8fb27c64f5d985ea9574c017c9dbe6ec3f12e9). All seven owner checks are complete in [PR #8](https://github.com/jkosem/IronSwan/pull/8). [Regression and performance tests](https://github.com/jkosem/IronSwan/actions/runs/45892848153) passed on main. Release tag and GitHub Release publication are pending.
 
 Authors set the byline and ordered chapter list in `book.txt`. One shared reader opens new Markdown chapters. Chapter titles and numbering follow the list, and editing a title or order preserves bookmarks.
 
