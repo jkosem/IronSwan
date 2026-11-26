@@ -6,13 +6,13 @@
 
 Iron Swan is a web-book template. It is all flat files which you can modify for your own use and at your own peril. If you want to publish simple to read books for the web that you put on your own server somewhere, this is exactly for you. Somehow this didn’t exist which I still have such a hard time believing.
 
-The goal is a simple, elegant way to create, design, read and independently publish books on the web. Iron Swan is for readers, authors and designers; it uses flat HTML, CSS, JavaScript and Markdown without a required build step or runtime dependencies. Cold Forest is a separate book and a real-world test of the template.
+It is a simple, easy way to create, design, read and independently publish books on the web. Iron Swan uses flat HTML, CSS, JavaScript and Markdown without a required build step or runtime dependencies.
 
 Be warned: it's super heavy metal, thus the name. It is good for all sorts of books, not just awesome books about dragons.
 
 ## How it works
 
-There is a Markdown directory. You put your chapters in Markdown files there.
+There is a Markdown directory. You put your chapters in Markdown files there. That's sort of it.
 
 There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
 
