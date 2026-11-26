@@ -97,21 +97,22 @@ function setupReadingTime() {
 
 /**
  * Keyboard navigation for desktop readers.
- * Left Arrow or '[': Previous Chapter
- * Right Arrow or ']': Next Chapter
- * Escape or 'H': Back to Table of Contents
+ * Left Arrow: Previous Chapter
+ * Right Arrow: Next Chapter
+ * Escape: Back to Table of Contents
  */
 function setupKeyboardNavigation(prevChapter, nextChapter) {
   document.addEventListener('keydown', (e) => {
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
       return;
     }
 
-    if ((e.key === 'ArrowLeft' || e.key === '[') && prevChapter) {
+    if (e.key === 'ArrowLeft' && prevChapter) {
       window.location.href = `chapter-${prevChapter.id}.html`;
-    } else if ((e.key === 'ArrowRight' || e.key === ']') && nextChapter) {
+    } else if (e.key === 'ArrowRight' && nextChapter) {
       window.location.href = `chapter-${nextChapter.id}.html`;
-    } else if (e.key === 'Escape' || (e.key.toLowerCase() === 'h' && !e.ctrlKey && !e.metaKey)) {
+    } else if (e.key === 'Escape') {
       window.location.href = 'index.html';
     }
   });
@@ -178,6 +179,7 @@ async function initChapter() {
     setupReadingTime();
   }
   navigation.updateNavigationLinks(CHAPTER_ID, success);
+  document.querySelector('.chapter-content')?.setAttribute('aria-busy', 'false');
   refreshProgress();
   document.title = `${config.title} - ${title}`;
 

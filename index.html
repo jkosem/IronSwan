@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div class="cover">
-            <img src="images/cover-image.jpg" alt="Book Cover" class="cover-image" width="320" height="427" fetchpriority="high" decoding="async">
+            <img src="images/cover-image.jpg" alt="Book Cover" class="cover-image" width="320" height="519" fetchpriority="high" decoding="async">
             <h1 id="book-title">Book Title</h1>
             <p id="book-author">by Author Name</p>
         </div>
@@ -59,7 +59,7 @@
             const link = document.createElement('a');
             link.href = `chapter-${lastChapterId}.html`;
             link.className = 'nav-link';
-            link.textContent = `Resume Reading: ${chapterTitle}`;
+            link.textContent = `Reopen chapter: ${chapterTitle}`;
             resumeReading.appendChild(link);
             document.querySelector('.toc').insertBefore(
                 resumeReading,
