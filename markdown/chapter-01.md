@@ -1,5 +1,3 @@
-# Introduction
-
 Welcome to the digital book. For centuries, the codex—bound paper between two stiff boards—held an unchallenged monopoly over long-form prose. It was portable, durable, and required no battery. Yet as the screen swallowed our letters, newspapers, and conversations, long-form literature found itself adrift between two awkward extremes: the closed walled gardens of proprietary e-reader formats and the chaotic, hyperlinked frenzy of standard web pages.
 
 Iron Swan began as an exploration into a quiet middle path. It asks a simple question: what happens when we treat a collection of plain Markdown documents as a book, using only standard web technologies, hosted on your own server, completely free of corporate platforms, tracking pixels, and bloated JavaScript bundles?

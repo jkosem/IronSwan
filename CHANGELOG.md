@@ -2,7 +2,11 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
-## Unreleased — v1.1: A reliable web book
+## In review — v1.2 · An easy book to create
+
+Authors set the byline and ordered chapter list in `book.txt`. One shared reader opens new Markdown chapters. Chapter titles and numbering follow the list, and editing a title or order preserves bookmarks.
+
+## v1.1 — A reliable web book
 
 **Already merged into main (25 November 2026)**
 
@@ -10,13 +14,15 @@ This records user outcomes and release status. The [roadmap](ROADMAP.md) describ
 - The contents page no longer downloads all chapter text; reading progress and styles are more efficient ([PR #2](https://github.com/jkosem/IronSwan/pull/2)).
 - Automated regression and performance checks reduce the risk of breaking working books ([PR #1](https://github.com/jkosem/IronSwan/pull/1), [PR #3](https://github.com/jkosem/IronSwan/pull/3)).
 
-**Pending owner acceptance — [PR #4](https://github.com/jkosem/IronSwan/pull/4)**
+**Merged 26 November 2026 — [PR #4](https://github.com/jkosem/IronSwan/pull/4)**
 
 - Improved reading accessibility, more stable chapter loading and a smaller cover image.
 - User-centred versioned roadmap, project memory alignment and trackable owner acceptance testing. The README keeps its informal voice and archives earlier wording verbatim under dated snapshots.
 
-The PR reports 14 passing tests and lab improvements; owner browser acceptance and required CI must be completed before release. No release date or tag is claimed here.
+The owner checklist is complete. The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c23065a0fd0d81942cef14b9cb9d911b432c1cf1). [GitHub Actions](https://github.com/jkosem/IronSwan/actions/runs/45890601434) passed on main and all 14 tests passed on a fresh checkout. Tag and GitHub Release publication are pending.
 
 ## Historical v1.0 — A working web book
 
-The original README identified the existing working template as v1: chapter pages rendered Markdown, with a cover and initial reading design. The 20 October 2026 commit [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac) is the verified base of the first November PR and the candidate historical baseline. Its browser behavior and tag status remain to be verified before formalizing a v1.0 release.
+The original README identified the existing working template as v1: chapter pages rendered Markdown, with a cover and initial reading design. The historical baseline is [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac), 20 October 2026, the last main revision before the November work and the base of PR #1. The original README calls it v1. No historical tag or GitHub Release was found.
+
+A local Chromium check on both exact revisions loaded the cover image and five contents links, opened Introduction, followed Next to Character Development and returned to the contents. External fonts were disabled for this check.

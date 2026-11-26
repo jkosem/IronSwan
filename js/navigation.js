@@ -1,4 +1,4 @@
-import config from './config.js';
+import config, { chapterURL } from './book.js';
 import stateManager from './state-manager.js';
 
 class Navigation {
@@ -30,7 +30,7 @@ class Navigation {
 
     if (prevLink) {
       if (prevChapter) {
-        prevLink.href = `chapter-${prevChapter.id}.html`;
+        prevLink.href = chapterURL(prevChapter);
         prevLink.style.display = 'inline-flex';
       } else {
         prevLink.style.display = 'none';
@@ -39,7 +39,7 @@ class Navigation {
 
     if (nextLink) {
       if (nextChapter) {
-        nextLink.href = `chapter-${nextChapter.id}.html`;
+        nextLink.href = chapterURL(nextChapter);
         nextLink.style.display = 'inline-flex';
       } else {
         nextLink.style.display = 'none';

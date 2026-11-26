@@ -10,18 +10,27 @@ It is a simple, easy way to create, design, read and independently publish books
 
 Be warned: it's super heavy metal, thus the name. It is good for all sorts of books, not just awesome books about dragons.
 
-## How it works
+## Make a book
 
-There is a Markdown directory. You put your chapters in Markdown files there. That's sort of it.
+Open `book.txt`. Put your title, byline and copyright at the top. Below them, give each chapter one line, in reading order. Here's a whole little book:
 
-There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
+```text
+Title: After the Thaw
+Author: J. North
+Copyright: © J. North
 
-The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
+first-snow.md | First Snow
+the-river.md | The River
+```
 
-To add a new chapter:
-1. Create `markdown/chapter-06.md`.
-2. Copy any existing `chapter-*.html` file to `chapter-06.html` (no script edits required!).
-3. Add the chapter entry to `js/config.js` under `chapters`. The configured title appears in the table of contents immediately, without downloading the Markdown; keep it in sync with the chapter heading.
+Put the prose in `markdown/first-snow.md` and `markdown/the-river.md`. Start with your first sentence. The reader supplies the chapter heading from the list. Use `##` for sections. Keep filenames simple (letters, numbers, spaces, hyphens or underscores ending in `.md`).
+
+- **Add a chapter.** Save the Markdown file and add its line to the list.
+- **Rename a chapter.** Change the words after the bar. Keep the filename so bookmarks still work.
+- **Move a chapter.** Move its line. The contents numbers and Previous/Next links follow along.
+- **Remove a chapter.** Remove its line. If you want the text taken off the web too, remove the Markdown file from your host.
+
+Save both files to your static web host and refresh the contents page. For an existing v1.1 book, keep your original Markdown and numbered HTML pages. Books without `book.txt` use their existing `js/config.js`; to adopt the new format, list each chapter in `book.txt`. Standard numbered filenames keep their old page addresses. Keep any custom mapping between numbered pages and differently named Markdown files in the legacy configuration.
 
 ## Themes
 
@@ -61,7 +70,7 @@ Save the file and refresh your browser. That's it.
 
 ## Versions
 
-The original working template was called v1 (historical v1.0). The November 2026 development work is the basis of v1.1 — a reliable web book. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
+The original working template was called v1 (historical v1.0). The November work landed in [PR #4](https://github.com/jkosem/IronSwan/pull/4). That’s v1.1 — a reliable web book. Its owner checklist is complete and the release tag is pending. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
 
 ## Security and Markdown support
 
@@ -75,7 +84,7 @@ Run `node --test tests/*.test.mjs` with a recent Node.js release. No package ins
 
 ## Performance
 
-The table of contents uses configuration only; chapter pages load their own Markdown. Scroll progress uses a transform with cached page dimensions, refreshed when content changes. Both themes retain their existing CSS entry point. Google Fonts uses swap and only requested styles; the cover retains its dimensions and high fetch priority.
+The table of contents reads one small book definition;  chapter pages load their own Markdown. Scroll progress uses a transform with cached page dimensions, refreshed when content changes. Both themes retain their existing CSS entry point. Google Fonts uses swap and only requested styles; the cover retains its dimensions and high fetch priority.
 
 Run the Node regression and performance budget tests with `node --test tests/*.test.mjs`. Budgets apply to gzip-compressed first-party CSS and JavaScript source (10 KiB each per page, excluding fonts and images). Browser targets: Lighthouse mobile performance 95+, LCP under 1.5 s as an aspirational target, CLS below 0.1; measure on the deployed site using cold-cache mobile throttling. These are targets, not measured results. Keep cover images compressed and enable HTTP compression and caching at the host.
 
@@ -108,6 +117,27 @@ MIT License
 Copyright (c) 2025 Jim Kosem
 
 ## README archive — what it was like at the time
+
+### 26 November 2026 — adding chapters in v1.1
+
+<details>
+<summary>Previous authoring instructions</summary>
+
+## How it works
+
+There is a Markdown directory. You put your chapters in Markdown files there. That's sort of it.
+
+There are corresponding chapter HTML files in the root which have to have the same name as the markdown files. These chapter files render the Markdown files of the same names and that's it. Seriously it’s dead simple and that’s the point.
+
+The chapter HTML files in the root simply load their corresponding Markdown files. You never have to manually edit a `CHAPTER_ID` in the HTML files anymore—the unified script (`js/chapter.js`) automatically detects the chapter number from the filename (e.g., `chapter-01.html` loads `01`) and sets up everything.
+
+To add a new chapter:
+1. Create `markdown/chapter-06.md`.
+2. Copy any existing `chapter-*.html` file to `chapter-06.html` (no script edits required!).
+3. Add the chapter entry to `js/config.js` under `chapters`. The configured title appears in the table of contents immediately, without downloading the Markdown; keep it in sync with the chapter heading.
+
+</details>
+
 
 These are historical snapshots, not current setup instructions. Original wording, spelling, jokes, links and old plans are preserved. Dates identify the repository snapshots, not necessarily when each sentence was first written.
 

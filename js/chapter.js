@@ -1,4 +1,4 @@
-import config from './config.js';
+import config, { chapterURL, resolveChapterId } from './book.js';
 import contentLoader from './content-loader.js';
 import navigation from './navigation.js';
 
@@ -8,16 +8,16 @@ import navigation from './navigation.js';
  */
 function detectChapterId() {
   // 1. Check pathname (e.g., chapter-01.html -> "01")
-  const pathMatch = window.location.pathname.match(/chapter-(\d+)/i);
+  const pathMatch = window.location.pathname.match(/\/chapter-(\d+)\.html$/i);
   if (pathMatch && pathMatch[1]) {
-    return pathMatch[1].padStart(2, '0');
+    return resolveChapterId(pathMatch[1].padStart(2, '0'));
   }
 
   // 2. Check search params (e.g., ?chapter=01 or ?ch=1)
   const params = new URLSearchParams(window.location.search);
   const queryCh = params.get('chapter') || params.get('ch');
   if (queryCh) {
-    return queryCh.padStart(2, '0');
+    return config.chapters.some(chapter => chapter.id === queryCh) ? queryCh : queryCh.padStart(2, '0');
   }
 
   // 3. Fallback to first chapter in config
@@ -109,9 +109,9 @@ function setupKeyboardNavigation(prevChapter, nextChapter) {
     }
 
     if (e.key === 'ArrowLeft' && prevChapter) {
-      window.location.href = `chapter-${prevChapter.id}.html`;
+      window.location.href = chapterURL(prevChapter);
     } else if (e.key === 'ArrowRight' && nextChapter) {
-      window.location.href = `chapter-${nextChapter.id}.html`;
+      window.location.href = chapterURL(nextChapter);
     } else if (e.key === 'Escape') {
       window.location.href = 'index.html';
     }
@@ -150,9 +150,9 @@ function setupSwipeNavigation(prevChapter, nextChapter) {
       // - Horizontal travel is at least 2x the vertical travel (to avoid triggering during normal scrolling)
       if (duration < 450 && Math.abs(deltaX) > 70 && Math.abs(deltaX) > Math.abs(deltaY) * 2) {
         if (deltaX < 0 && nextChapter) {
-          window.location.href = `chapter-${nextChapter.id}.html`;
+          window.location.href = chapterURL(nextChapter);
         } else if (deltaX > 0 && prevChapter) {
-          window.location.href = `chapter-${prevChapter.id}.html`;
+          window.location.href = chapterURL(prevChapter);
         }
       }
     }
@@ -174,7 +174,7 @@ async function initChapter() {
 
   // Load and render chapter markdown
   const { title, content, success } = await contentLoader.loadChapterContent(CHAPTER_ID);
-  contentLoader.updateChapterContent(title, content);
+  contentLoader.updateChapterContent(title, content, success);
   if (success) {
     setupReadingTime();
   }
