@@ -61,7 +61,7 @@ Save the file and refresh your browser. That's it.
 
 ## Versions
 
-The original working template was called v1 (historical v1.0). The November 2026 development work is the basis of v1.1 — a reliable web book. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
+The original working template was called v1 (historical v1.0). The November work landed in [PR #4](https://github.com/jkosem/IronSwan/pull/4). That’s v1.1 — a reliable web book. Its owner checklist is complete and the release tag is pending. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
 
 ## Security and Markdown support
 
