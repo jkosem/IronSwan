@@ -6,6 +6,8 @@
 
 Iron Swan is a web-book template. It is all flat files which you can modify for your own use and at your own peril. If you want to publish simple to read books for the web that you put on your own server somewhere, this is exactly for you. Somehow this didn’t exist which I still have such a hard time believing.
 
+The goal is a simple, elegant way to create, design, read and independently publish books on the web. Iron Swan is for readers, authors and designers; it uses flat HTML, CSS, JavaScript and Markdown without a required build step or runtime dependencies. Cold Forest is a separate book and a real-world test of the template.
+
 Be warned: it's super heavy metal, thus the name. It is good for all sorts of books, not just awesome books about dragons.
 
 ## How it works
@@ -57,12 +59,9 @@ Save the file and refresh your browser. That's it.
    @import url('mycool-theme.css');
    ```
 
-## v1
+## Versions
 
-- Generally working
-- Chapter pages render Markdown
-- Very mediocre at best front-end design
-- Awesome logo and cover
+The original working template was called v1 (historical v1.0). The November 2026 development work is the basis of v1.1 — a reliable web book. Version numbers track user outcomes, not individual technical changes. Check the [changelog](CHANGELOG.md) for release status and the [roadmap](ROADMAP.md) for future versions.
 
 ## Security and Markdown support
 
@@ -80,14 +79,11 @@ The table of contents uses configuration only; chapter pages load their own Mark
 
 Run the Node regression and performance budget tests with `node --test tests/*.test.mjs`. Budgets apply to gzip-compressed first-party CSS and JavaScript source (10 KiB each per page, excluding fonts and images). Browser targets: Lighthouse mobile performance 95+, LCP under 1.5 s as an aspirational target, CLS below 0.1; measure on the deployed site using cold-cache mobile throttling. These are targets, not measured results. Keep cover images compressed and enable HTTP compression and caching at the host.
 
-## Roadmap
+## Roadmap and development
 
-- Won't have to update the config.js files with the chapter names and will list automagically so about a minute less of typing
-- [x] Automatically detect chapter IDs from filenames
-- [x] Add baseline automated Markdown regression tests
-- [ ] Expand tests to cover browser navigation, accessibility, and CSS
-- Some sort of interaction method that makes makes reading actually better in a browser
-- Way better front-end that is actually designed. Maybe.
+See the [user-centred product roadmap](ROADMAP.md) for the release sequence, design principles and acceptance criteria. Each release improves creating, designing, reading or publishing a book. AI handles implementation and technical tests; the owner reviews a browser preview using change-specific GitHub checkboxes in the PR. Release only after explicit owner approval and required passing checks.
+
+The [project memory](IronSwan-Project-Memory.md) records standing constraints, decisions and technical history. The [changelog](CHANGELOG.md) records what changed and why.
 
 ## “Development” History
 

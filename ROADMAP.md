@@ -14,7 +14,7 @@ User first; simplicity; elegance; independence; design-led development; performa
 
 | Version | User outcome | Scope and acceptance |
 | --- | --- | --- |
-| v1.0 | A working web book | Historical pre-November 2026 baseline, identified as v1 in the original README. Exact commit/tag still to verify. |
+| v1.0 | A working web book | Historical pre-November 2026 baseline, identified as v1 in the original README. Candidate: [`7a4a577`](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac), 20 October 2026, verified base of PR #1; tag and historical browser behavior still unverified. |
 | v1.1 | A reliable web book (reader) | November performance, reliability, Markdown, accessibility and regression work. Test on desktop and phone, both themes, chapter loading and navigation, keyboard and zoom. Existing PR #4 awaits owner review. |
 | v1.2 | An easy book to create (author) | Simplify metadata and chapter creation, removal, naming and ordering without adding required tools or unnecessary network requests. Create a clean test book, add/rename/reorder chapters, change title/author, verify contents. |
 | v1.3 | A better way to read (reader) | Design research into typography, spacing, navigation, progress, resuming and mobile reading. Compare old and new experiences through real reading sessions; add only proven beneficial interactions. |
@@ -39,4 +39,4 @@ The owner is product owner, design director and final acceptance tester. AI hand
 
 ## Repository documents
 
-README.md: public introduction and instructions. ROADMAP.md: current product milestones. CHANGELOG.md: release outcomes and changes (to establish at release). IronSwan-Project-Memory.md: constraints, decisions, technical history and context. Read roadmap and memory before each phase; check live repository state. Keep release history accurate, and do not restart completed work.
+README.md: public introduction and instructions. ROADMAP.md: current product milestones. CHANGELOG.md: release outcomes, pending changes and release status. IronSwan-Project-Memory.md: constraints, decisions, technical history and context. Read roadmap and memory before each phase; check live repository state. Keep release history accurate, and do not restart completed work.
