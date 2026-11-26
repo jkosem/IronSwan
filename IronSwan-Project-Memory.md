@@ -74,6 +74,8 @@ The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c
 
 In v1.2, new books use book.txt and a shared chapter reader. The contents loads the list without downloading chapter bodies. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
+The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Owner acceptance and merge approval are pending.
+
 ## 7. Operating instruction for future Iron Swan project chats
 
 Read this reference, ROADMAP.md, CHANGELOG.md and README.md and check the current repository/PR state before proposing IronSwan work. Treat the architecture constraints and owner preferences as standing context. Distinguish historical roadmap from recommendations. Reuse prior decisions instead of restarting. If the work changes a decision, status or next step, provide a concise update to this reference. Never assume an open PR has merged, a test has run, or a proposal has been approved. Ask only for decisions that require the owner's judgment; give direct browser-test instructions rather than developer-oriented chores.

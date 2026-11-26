@@ -1,5 +1,4 @@
 import config, { chapterURL } from './book.js';
-import stateManager from './state-manager.js';
 
 class Navigation {
   constructor() {
@@ -21,7 +20,7 @@ class Navigation {
     return currentIndex > 0 ? this.chapters[currentIndex - 1] : null;
   }
 
-  updateNavigationLinks(currentChapterId, saveState = true) {
+  updateNavigationLinks(currentChapterId) {
     const prevChapter = this.getPreviousChapter(currentChapterId);
     const nextChapter = this.getNextChapter(currentChapterId);
     
@@ -44,11 +43,6 @@ class Navigation {
       } else {
         nextLink.style.display = 'none';
       }
-    }
-
-    // Save current chapter to state if valid
-    if (saveState && this.getCurrentChapterIndex(currentChapterId) !== -1) {
-      stateManager.saveLastChapter(currentChapterId);
     }
   }
 }

@@ -55,23 +55,33 @@
             document.querySelector('.toc-list').replaceWith(message);
         }
 
-        // Check for last read chapter
-        const lastChapterId = stateManager.getLastChapter();
-        if (lastChapterId) {
-            const chapter = config.chapters.find(c => c.id === lastChapterId);
-            const chapterTitle = chapter ? chapter.title : `Chapter ${lastChapterId}`;
-            const resumeReading = document.createElement('div');
+        function updateReturnLink() {
+            const existing = document.querySelector('.resume-reading');
+            const saved = stateManager.getReadingPlace();
+            if (!saved) {
+                existing?.remove();
+                return;
+            }
+            const chapter = config.chapters.find(chapter => chapter.id === saved.chapterId);
+            const resumeReading = existing ?? document.createElement('div');
             resumeReading.className = 'resume-reading';
-            const link = document.createElement('a');
-            link.href = chapterURL(chapter);
+            const link = resumeReading.firstElementChild ?? document.createElement('a');
+            link.href = chapterURL(chapter) + (saved.paragraph ? '#continue' : '');
             link.className = 'nav-link';
-            link.textContent = `Reopen chapter: ${chapterTitle}`;
-            resumeReading.appendChild(link);
-            document.querySelector('.toc').insertBefore(
-                resumeReading,
-                document.querySelector('.toc-list')
-            );
+            link.textContent = saved.paragraph
+                ? `Continue reading · ${chapter.title}`
+                : `Reopen chapter: ${chapter.title}`;
+            if (!existing) {
+                resumeReading.appendChild(link);
+                document.querySelector('.toc-list').before(resumeReading);
+            }
         }
+
+        updateReturnLink();
+        window.addEventListener('pageshow', event => {
+            if (event.persisted) updateReturnLink();
+        });
+        window.addEventListener('storage', updateReturnLink);
     </script>
 </body>
 </html> 

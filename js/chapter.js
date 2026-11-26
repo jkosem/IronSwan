@@ -1,5 +1,6 @@
 import config, { chapterURL, resolveChapterId } from './book.js';
 import contentLoader from './content-loader.js';
+import stateManager from './state-manager.js';
 import navigation from './navigation.js';
 
 /**
@@ -95,6 +96,59 @@ function setupReadingTime() {
   }
 }
 
+// The first paragraph crossing the top reading edge is the reader's place.
+// Measure only when saving, never on the animation-frame progress path.
+function setupReadingPlace() {
+  const paragraphs = Array.from(document.querySelectorAll('.chapter-content p'))
+    .filter(paragraph => paragraph.textContent.trim());
+  const saved = stateManager.getReadingPlace();
+  if (location.hash === '#continue' && saved?.chapterId === CHAPTER_ID && saved.paragraph) {
+    const { index, text } = saved.paragraph;
+    let target = paragraphs[index];
+    if (target?.textContent !== text) {
+      const matches = paragraphs.filter(paragraph => paragraph.textContent === text);
+      target = matches.length === 1 ? matches[0] : null;
+    }
+    if (target) {
+      target.tabIndex = -1;
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  }
+
+  function save() {
+    let place = null;
+    if (window.scrollY > 0 && paragraphs.length) {
+      let first = 0;
+      let last = paragraphs.length - 1;
+      while (first < last) {
+        const middle = Math.floor((first + last) / 2);
+        if (paragraphs[middle].getBoundingClientRect().bottom <= 1) first = middle + 1;
+        else last = middle;
+      }
+      place = { index: first, text: paragraphs[first].textContent };
+    }
+    stateManager.saveLastChapter(CHAPTER_ID, place);
+  }
+
+  let timer;
+  function flush() {
+    clearTimeout(timer);
+    save();
+  }
+  save();
+  window.addEventListener('scroll', () => {
+    clearTimeout(timer);
+    timer = setTimeout(save, 250);
+  }, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) flush();
+  });
+  window.addEventListener('pagehide', () => {
+    if (!document.hidden) flush();
+  });
+}
+
 /**
  * Keyboard navigation for desktop readers.
  * Left Arrow: Previous Chapter
@@ -178,8 +232,9 @@ async function initChapter() {
   if (success) {
     setupReadingTime();
   }
-  navigation.updateNavigationLinks(CHAPTER_ID, success);
+  navigation.updateNavigationLinks(CHAPTER_ID);
   document.querySelector('.chapter-content')?.setAttribute('aria-busy', 'false');
+  if (success) setupReadingPlace();
   refreshProgress();
   document.title = `${config.title} - ${title}`;
 

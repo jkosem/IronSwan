@@ -2,15 +2,17 @@ import config, { resolveChapterId } from './book.js';
 
 class StateManager {
   constructor() {
-    this.storageKey = config.storage.lastChapterKey;
+    this.legacyKey = config.storage.lastChapterKey;
+    this.storageKey = this.legacyKey + ':' + new URL('../', import.meta.url).pathname;
     this.expiryDays = config.storage.expiryDays;
   }
 
-  saveLastChapter(chapterId) {
+  saveLastChapter(chapterId, paragraph = null) {
     try {
       const data = {
         chapterId,
         format: 2,
+        paragraph,
         timestamp: new Date().getTime()
       };
       localStorage.setItem(this.storageKey, JSON.stringify(data));
@@ -19,9 +21,9 @@ class StateManager {
     }
   }
 
-  getLastChapter() {
+  getReadingPlace() {
     try {
-      const data = JSON.parse(localStorage.getItem(this.storageKey));
+      const data = JSON.parse(localStorage.getItem(this.storageKey) ?? localStorage.getItem(this.legacyKey));
       
       if (!data) {
         return null;
@@ -32,7 +34,6 @@ class StateManager {
       const expiryTime = data.timestamp + (this.expiryDays * 24 * 60 * 60 * 1000);
       
       if (now > expiryTime) {
-        localStorage.removeItem(this.storageKey);
         return null;
       }
 
@@ -43,20 +44,12 @@ class StateManager {
         return null;
       }
 
-      return id;
+      return { chapterId: id, paragraph: data.paragraph ?? null };
     } catch (error) {
       console.warn('Failed to load reading state:', error);
       return null;
     }
   }
-
-  clearState() {
-    try {
-      localStorage.removeItem(this.storageKey);
-    } catch (error) {
-      console.warn('Failed to clear reading state:', error);
-    }
-  }
 }
 
-export default new StateManager(); 
+export default new StateManager();
