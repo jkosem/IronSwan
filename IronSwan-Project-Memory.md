@@ -1,0 +1,94 @@
+# Iron Swan — project memory
+
+Baseline verified: 26 November 2026. Living reference; check live GitHub status before acting. Owner preferences, historical facts and proposed future work are distinguished below.
+
+## 1. Purpose and scope
+
+Iron Swan (repository name: IronSwan) is a deliberately minimalist, MIT-licensed, open-source web-book publishing template and an experiment in AI-assisted design and coding by a designer, not a software developer.
+
+Repository: https://github.com/jkosem/IronSwan
+
+The goal is to make attractive, readable web books that authors can adapt and host on their own ordinary web server. Simplicity is a feature, not a temporary limitation.
+
+**Iron Swan is the software, not the book.** Cold Forest is a separate book that uses Iron Swan, and a real-world test case for the template. The repository includes a Cold Forest theme. Book-specific editorial decisions, marketing and distribution belong in the separate Cold Forest project. Do not make the reusable software dependent on one publication's needs without explicit approval.
+
+## 2. Standing design and development constraints
+
+- Keep plain, portable HTML, CSS, JavaScript and Markdown; flat files, no runtime dependencies, no required build step, no framework or database unless explicitly approved.
+- Preserve the existing visual design and both themes unless changes are explicitly requested. The themes use a common `css/theme.css` entry point. Prioritize typography, reading comfort, responsive behavior, accessibility and speed over feature quantity.
+- Treat the owner as a designer who can judge real browser behavior, not someone who should have to run developer tooling to review routine changes.
+- Prefer as few cohesive, reviewable pull requests as practical, rather than many tiny PRs. Provide accessible preview links or before/after comparisons and concrete manual acceptance checks. Explain changes and rationale concisely in plain language.
+- Verify repository state and existing work before making changes. Preserve protections; use a branch and PR, run tests and review changes, and do not merge without explicit approval. Distinguish measured evidence, static analysis, reported results and untested assumptions.
+- Avoid redoing completed work. Before each new phase, check main, open PRs, this roadmap and README; after changes, record the decision, status, evidence and next step in the living reference.
+
+## 3. Current architecture and test baseline
+
+- `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. To add a chapter today, create matching Markdown and HTML files and add metadata in `js/config.js`.
+- `js/toc-generator.js` uses configured titles without downloading chapters. Keep configuration and Markdown headings synchronized until a better approach is approved.
+- CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `coldforest-theme.css`.
+- Markdown parser deliberately supports a subset (not complete CommonMark). Raw HTML escaped, unsafe URL schemes rejected; deeply nested lists and complex inline nesting remain unsupported. Do not imply arbitrary untrusted Markdown is comprehensively audited.
+- Scroll progress uses a transform and cached page dimensions. Browser HTTP caching replaces ineffective cross-page in-memory prefetch.
+- `node --test tests/*.test.mjs` runs dependency-free tests; 14 tests reported passing in PR #4. GitHub Actions workflow `.github/workflows/tests.yml` runs regression and performance tests. Prior project conversation reports main protection requiring passing tests; protection settings were not independently inspected in this review.
+- README performance budgets: gzip-compressed first-party CSS and JavaScript 10 KiB each per page, excluding fonts/images. Mobile Lighthouse 95+, LCP below 1.5 s (aspirational), CLS below 0.1 are targets, not established production measurements.
+
+## 4. Verified development history
+
+| Work | Status as of 26 Nov 2026 | Source |
+|---|---|---|
+| Original Claude 3.7 architectural specification | Existed in April 2025; actual document not recovered | First substantive commit 0d8cc57, 8 Apr 2025, https://github.com/jkosem/IronSwan/commit/0d8cc57; README development history |
+| Initial working template, cover and reading pages | Implemented | Repository main |
+| Filename-based chapter IDs and theme architecture | Implemented | README, main |
+| Markdown security, ordered lists, regression tests, prefetch removal | PR #1 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/1 |
+| CSS/JS optimization, no-fetch TOC, scroll progress, performance budgets | PR #2 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/2 |
+| GitHub Actions testing | PR #3 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/3 |
+| Reading accessibility, chapter loading stability, cover compression | PR #4 open, awaiting design review | https://github.com/jkosem/IronSwan/pull/4 |
+
+PR #4 reports 14 passing tests, five cold mobile lab runs on chapter 2 with CLS 0 versus 0.205 baseline (same fallback-font lab setup), zero automated WCAG violations in the tested cover/chapter in both themes, and cover JPEG reduced from 215,857 to 47,632 bytes. These are PR-reported results, not independently rerun in this review. Safari and assistive technology require manual review.
+
+## 5. Recovered roadmap (existing, not newly invented)
+
+Source: https://github.com/jkosem/IronSwan/blob/main/README.md#roadmap
+
+- [ ] Avoid manually editing `config.js` with chapter titles; make listing automatic.
+- [x] Automatically detect chapter IDs from filenames.
+- [x] Add baseline automated Markdown regression tests.
+- [ ] Expand tests to browser navigation, accessibility and CSS (some progress in PRs #2 and #4, not complete).
+- [ ] Explore interaction that genuinely improves reading in a browser.
+- [ ] Improve the front-end design.
+
+The README notes an earlier Claude-assisted spec and three restarts in the development process. It argues for a refined spec before implementation. The main-branch tree has no separate plan/spec document; the April 2025 initial implementation tree did not include one either. Project file search and Dropbox searches for IronSwan / Iron Swan returned no matches. Original Claude chats, local editor files and unconnected services were not searched. Historical commit messages were checked, not every historical file revision.
+
+## 6. Proposed continuation (not yet approved or implemented)
+
+### Next: finish the existing review, not another refactor
+
+Review PR #4 in the browser before deciding whether to merge. It contains the following design checks:
+
+- Compare chapter numbers and reading-time labels in both themes.
+- Open the slow chapter and observe whether the layout jumps while text loads.
+- Compare cover lettering and fine lines at normal size.
+- Try H, [ and ] inside a chapter; use Tab and Enter to navigate.
+- Zoom to 200%; return to contents and choose Reopen chapter to start at the beginning.
+- Check Safari/mobile and assistive technology where possible.
+
+Review links from the PR (availability not verified here):
+- IronSwan: https://ironswan-reading-review.frizzyquince.chatgpt.site/ironswan/index.html
+- Cold Forest: https://ironswan-reading-review.frizzyquince.chatgpt.site/coldforest/index.html
+- Slow chapter: https://ironswan-reading-review.frizzyquince.chatgpt.site/slow/chapter-02.html
+- Cover comparison: https://ironswan-reading-review.frizzyquince.chatgpt.site/
+
+### After that: authoring simplicity
+
+Investigate chapter-title configuration and adding new chapters. Do not undo the no-fetch TOC optimization by fetching every chapter at startup. Compare simple metadata approaches, optional generation tools (not required for publishing), and the cost of preserving the current configuration. Change only if demonstrably simpler for authors.
+
+### Then: reading design
+
+Evaluate real reading tasks using both themes: finding one's place, moving between chapters, resuming, legibility, text width and spacing, mobile navigation, keyboard use, reduced motion and zoom. Use small prototypes and real excerpts. Add features only if their benefits are clear and they keep the template minimal.
+
+### Finally: publishing readiness
+
+Document copying the template, changing book metadata, adding chapters, selecting a theme, replacing images/fonts, and deploying to static hosting. Check browser navigation and accessibility regressions, hosting portability and actual deployed performance. Decide what a stable release means; avoid inventing release dates or commitments.
+
+## 7. Operating instruction for future Iron Swan project chats
+
+Read this reference and check the current repository/PR state before proposing IronSwan work. Treat the architecture constraints and owner preferences as standing context. Distinguish historical roadmap from recommendations. Reuse prior decisions instead of restarting. If the work changes a decision, status or next step, provide a concise update to this reference. Never assume an open PR has merged, a test has run, or a proposal has been approved. Ask only for decisions that require the owner's judgment; give direct browser-test instructions rather than developer-oriented chores.
