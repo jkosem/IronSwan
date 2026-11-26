@@ -2,6 +2,10 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
+## In review — v1.3 · A better way to read
+
+Continue reading returns to the paragraph at the top of the reading view in the same browser. Choosing a chapter from the contents starts at its opening. Owner acceptance is pending.
+
 ## v1.2 — An easy book to create
 
 Accepted and merged on 26 November 2026 at [9d8fb27](https://github.com/jkosem/IronSwan/commit/9d8fb27c64f5d985ea9574c017c9dbe6ec3f12e9). All seven owner checks are complete in [PR #8](https://github.com/jkosem/IronSwan/pull/8). [Regression and performance tests](https://github.com/jkosem/IronSwan/actions/runs/45892848153) passed on main. Release tag and GitHub Release publication are pending.
