@@ -47,7 +47,7 @@ The goal is to make attractive, readable web books that authors can adapt and ho
 | Markdown security, ordered lists, regression tests, prefetch removal | PR #1 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/1 |
 | CSS/JS optimization, no-fetch TOC, scroll progress, performance budgets | PR #2 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/2 |
 | GitHub Actions testing | PR #3 merged 25 Nov 2026 | https://github.com/jkosem/IronSwan/pull/3 |
-| Reading accessibility, chapter loading stability, cover compression | PR #4 open, awaiting design review | https://github.com/jkosem/IronSwan/pull/4 |
+| Reading accessibility, chapter loading stability, cover compression | PR #4 merged 26 Nov 2026, owner checklist complete | https://github.com/jkosem/IronSwan/pull/4 |
 
 PR #4 reports 14 passing tests, five cold mobile lab runs on chapter 2 with CLS 0 versus 0.205 baseline (same fallback-font lab setup), zero automated WCAG violations in the tested cover/chapter in both themes, and cover JPEG reduced from 215,857 to 47,632 bytes. These are PR-reported results, not independently rerun in this review. Safari and assistive technology require manual review.
 
@@ -68,9 +68,9 @@ The README notes an earlier Claude-assisted spec and three restarts in the devel
 
 ## 6. Approved continuation (implementation and release approval still pending)
 
-The [product roadmap](ROADMAP.md) defines v1.0 (historical working baseline), v1.1 (reliability), v1.2 (authoring), v1.3 (reading experience), v1.4 (book identity), v1.5 (independent publishing), and v2.0 (maturity). Dates are intentionally unspecified. The October 20, 2026 commit `7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac` is the verified base of PR #1 and candidate for the original v1.0 tag; its browser behavior and existing tag status have not been independently verified.
+The [product roadmap](ROADMAP.md) defines v1.0 (historical working baseline), v1.1 (reliability), v1.2 (authoring), v1.3 (reading experience), v1.4 (book identity), v1.5 (independent publishing), and v2.0 (maturity). Dates are intentionally unspecified. The original v1.0 baseline is [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac) (20 October 2026). No existing release tags or GitHub Releases were found on 26 November.
 
-Next: complete [PR #4](https://github.com/jkosem/IronSwan/pull/4) using its tracked owner acceptance checklist and preview links. Resolve failures and record exceptions, obtain explicit owner approval, then release v1.1 after required passing checks. The PR also includes product documentation changes. Do not treat open work as released.
+The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c23065a0fd0d81942cef14b9cb9d911b432c1cf1). The owner completed the [PR #4](https://github.com/jkosem/IronSwan/pull/4) checklist and [GitHub Actions](https://github.com/jkosem/IronSwan/actions/runs/45890601434) passed on main. A fresh checkout passed all 14 tests. Tag publication is pending. Next decision is the owner's review of the proposed v1.2 authoring workflow.
 
 For v1.2, preserve no-fetch TOC behavior and evaluate authoring simplification before committing to any particular metadata architecture. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
