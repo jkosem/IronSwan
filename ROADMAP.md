@@ -14,8 +14,8 @@ User first; simplicity; elegance; independence; design-led development; performa
 
 | Version | User outcome | Scope and acceptance |
 | --- | --- | --- |
-| v1.0 | A working web book | Historical pre-November 2026 baseline, identified as v1 in the original README. Candidate: [`7a4a577`](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac), 20 October 2026, verified base of PR #1; tag and historical browser behavior still unverified. |
-| v1.1 | A reliable web book (reader) | November performance, reliability, Markdown, accessibility and regression work. Test on desktop and phone, both themes, chapter loading and navigation, keyboard and zoom. Existing PR #4 awaits owner review. |
+| v1.0 | A working web book | Historical pre-November 2026 baseline, identified as v1 in the original README. Verified baseline [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac), 20 October 2026, the base of PR #1. Historical tag pending. |
+| v1.1 | A reliable web book (reader) | November performance, reliability, Markdown, accessibility and regression work. Owner checklist complete in [PR #4](https://github.com/jkosem/IronSwan/pull/4). Merge [c23065a](https://github.com/jkosem/IronSwan/commit/c23065a0fd0d81942cef14b9cb9d911b432c1cf1) passed CI. Release publication pending. |
 | v1.2 | An easy book to create (author) | Simplify metadata and chapter creation, removal, naming and ordering without adding required tools or unnecessary network requests. Create a clean test book, add/rename/reorder chapters, change title/author, verify contents. |
 | v1.3 | A better way to read (reader) | Design research into typography, spacing, navigation, progress, resuming and mobile reading. Compare old and new experiences through real reading sessions; add only proven beneficial interactions. |
 | v1.4 | A book with its own identity (designer) | Refine visual design and simplify theming. Change type and colors, replace cover, create a third theme, switch themes without breaking functionality. |
