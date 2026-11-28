@@ -10,7 +10,7 @@ Repository: https://github.com/jkosem/IronSwan
 
 The goal is to make attractive, readable web books that authors can adapt and host on their own ordinary web server. Simplicity is a feature, not a temporary limitation.
 
-**Iron Swan is the software, not the book.** Cold Forest is a separate book that uses Iron Swan, and a real-world test case for the template. The repository includes a Cold Forest theme. Book-specific editorial decisions, marketing and distribution belong in the separate Cold Forest project. Do not make the reusable software dependent on one publication's needs without explicit approval.
+Iron Swan is the reusable publishing software. Each book lives in a separate copy with its own Markdown, cover, theme settings and deployment.
 
 ## 2. Standing design and development constraints
 
@@ -31,7 +31,7 @@ The goal is to make attractive, readable web books that authors can adapt and ho
 
 - `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. In v1.1, to add a chapter, create matching Markdown and HTML files and add metadata in `js/config.js`.
 - `js/toc-generator.js` uses configured titles without downloading chapters. Keep configuration and Markdown headings synchronized until a better approach is approved.
-- CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `coldforest-theme.css`.
+- CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `starter-theme.css`.
 - Markdown parser deliberately supports a subset (not complete CommonMark). Raw HTML escaped, unsafe URL schemes rejected; deeply nested lists and complex inline nesting remain unsupported. Do not imply arbitrary untrusted Markdown is comprehensively audited.
 - Scroll progress uses a transform and cached page dimensions. Browser HTTP caching replaces ineffective cross-page in-memory prefetch.
 - `node --test tests/*.test.mjs` runs dependency-free tests; 14 tests reported passing in PR #4. GitHub Actions workflow `.github/workflows/tests.yml` runs regression and performance tests. Prior project conversation reports main protection requiring passing tests; protection settings were not independently inspected in this review.
@@ -74,7 +74,7 @@ The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c
 
 In v1.2, new books use book.txt and a shared chapter reader. The contents loads the list without downloading chapter bodies. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
-The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Owner acceptance and merge approval are pending.
+The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Accepted, merged in PR #10 and published as v1.3. PR #12 established 19px phone and 20px desktop prose at default browser settings. The owner approved the optional Starter Theme with two settings for v1.4. Browser acceptance is pending.
 
 ## 7. Operating instruction for future Iron Swan project chats
 
