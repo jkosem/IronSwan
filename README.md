@@ -14,22 +14,15 @@ Be warned: it's super heavy metal, thus the name. It is good for all sorts of bo
 
 [Download Iron Swan (ZIP)](https://github.com/jkosem/IronSwan/archive/refs/heads/main.zip) and unzip it. Open the folder that has `index.html` and `book.txt` side by side. Rename that folder for your book and keep it for future updates.
 
-Each chapter needs one Markdown (`.md`) file in the `markdown` folder and one line in `book.txt`. Iron Swan already includes `chapter.html`, the reading page shared by all chapters. Leave the supplied chapter HTML files as they are.
+The download already contains five numbered chapters. Start with chapter one and make it yours.
 
-Open `book.txt`. Put your title, byline and copyright at the top. Below them, give each chapter one line, in reading order. Here's a whole little book:
+1. Open `markdown/chapter-01.md` and replace the sample text with your own. Start with your first paragraph. Iron Swan adds the chapter heading for you.
+2. Open `book.txt` and replace the title, author and copyright with yours. Find `chapter-01.md | Introduction` and change **Introduction** to your chapter title. Keep the filename on the left.
+3. Find `chapter-01.html` beside `index.html`. This is the page for `markdown/chapter-01.md`. The matching number tells it which chapter to open. The first five pairs are already set up.
 
-```text
-Title: After the Thaw
-Author: J. North
-Copyright: © J. North
+Repeat with `chapter-02.html` and `markdown/chapter-02.md` for chapter two, and so on. The contents follows the order of the lines in `book.txt`.
 
-first-snow.md | First Snow
-the-river.md | The River
-```
-
-Put the prose in `markdown/first-snow.md` and `markdown/the-river.md`. Start with your first sentence. The reader supplies the chapter heading from the list. Use `##` for sections. Keep filenames simple (letters, numbers, spaces, hyphens or underscores ending in `.md`).
-
-- **Add a chapter.** For example, save `markdown/the-bridge.md` and add `the-bridge.md | The Bridge` to `book.txt`. That’s the whole job.
+- **Add chapter six.** Save your text as `markdown/chapter-06.md`. In `book.txt`, add `chapter-06.md | Your chapter title` and use your own title. To give it the same kind of numbered web address as the first five chapters, duplicate the supplied `chapter.html` beside `index.html` and name the copy `chapter-06.html`. The contents also opens the chapter through the shared `chapter.html` page.
 - **Rename a chapter.** Change the words after the bar. Keep the filename so bookmarks still work.
 - **Move a chapter.** Move its line. The contents numbers and Previous/Next links follow along.
 - **Remove a chapter.** Remove its line. If you want the text taken off the web too, remove the Markdown file from your host.
