@@ -32,7 +32,9 @@ Put the prose in `markdown/first-snow.md` and `markdown/the-river.md`. Start wit
 - **Move a chapter.** Move its line. The contents numbers and Previous/Next links follow along.
 - **Remove a chapter.** Remove its line. If you want the text taken off the web too, remove the Markdown file from your host.
 
-To publish on Netlify, deploy the whole book folder with `index.html` at its root. The Markdown, book.txt, scripts, styles and images travel together. For an existing v1.1 book, keep your original Markdown and numbered HTML pages. Books without `book.txt` use their existing `js/config.js`; to adopt the new format, list each chapter in `book.txt`. Standard numbered filenames keep their old page addresses. Keep any custom mapping between numbered pages and differently named Markdown files in the legacy configuration.
+To publish, upload the contents of your book folder to your web host. Keep `index.html` at the top level, alongside `book.txt`, and keep the `markdown`, `images`, `css` and `js` folders beside them. To fix a paragraph later, edit its Markdown file and upload the updated book to the same location. Keep the chapter filename so its link stays the same.
+
+For an existing v1.1 book, keep your original Markdown and numbered HTML pages. Books without `book.txt` use their existing `js/config.js`; to adopt the new format, list each chapter in `book.txt`. Standard numbered filenames keep their old page addresses. Keep any custom mapping between numbered pages and differently named Markdown files in the legacy configuration.
 
 ## Give your book its own look
 
