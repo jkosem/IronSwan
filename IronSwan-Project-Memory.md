@@ -66,7 +66,7 @@ Current source of truth: [ROADMAP.md](ROADMAP.md). The historical list below is 
 
 The README notes an earlier Claude-assisted spec and three restarts in the development process. It argues for a refined spec before implementation. At the time of the historical search, the main-branch tree had no separate plan/spec document; the April 2025 initial implementation tree did not include one either. Project file search and Dropbox searches for IronSwan / Iron Swan returned no matches. Original Claude chats, local editor files and unconnected services were not searched. Historical commit messages were checked, not every historical file revision.
 
-## 6. Approved continuation (implementation and release approval still pending)
+## 6. Release decisions and acceptance
 
 The [product roadmap](ROADMAP.md) defines v1.0 (historical working baseline), v1.1 (reliability), v1.2 (authoring), v1.3 (reading experience), v1.4 (book identity), v1.5 (independent publishing), and v2.0 (maturity). Dates are intentionally unspecified. The original v1.0 baseline is [7a4a577](https://github.com/jkosem/IronSwan/commit/7a4a5775b6c09ba446e24a8bd9c7bdd1553d93ac) (20 October 2026). No existing release tags or GitHub Releases were found on 26 November.
 
@@ -74,7 +74,9 @@ The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c
 
 In v1.2, new books use book.txt and a shared chapter reader. The contents loads the list without downloading chapter bodies. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
-The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Accepted, merged in PR #10 and published as v1.3. PR #12 established 19px phone and 20px desktop prose at default browser settings. The owner approved the optional Starter Theme with two settings for v1.4. Browser acceptance is pending.
+The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Accepted, merged in PR #10 and published as v1.3. PR #12 established 19px phone and 20px desktop prose at default browser settings. The owner accepted the v1.4 Starter Theme, replacement cover and reading behavior in [PR #13](https://github.com/jkosem/IronSwan/pull/13). The [v1.4 release](https://github.com/jkosem/IronSwan/releases/tag/v1.4) was published on 28 November 2026.
+
+For v1.5, the author guide uses the numbered chapters already in the download and describes uploading the book to the author's chosen web host. Keep public publishing instructions independent of any hosting provider. The owner completed the publishing and correction checks in [PR #14](https://github.com/jkosem/IronSwan/pull/14) and verified the download in [PR #16](https://github.com/jkosem/IronSwan/pull/16). Keep this memory and ROADMAP.md in the repository and exclude both from book ZIPs. The [v1.5 release](https://github.com/jkosem/IronSwan/releases/tag/v1.5) was published on 28 November 2026.
 
 ## 7. Operating instruction for future Iron Swan project chats
 
