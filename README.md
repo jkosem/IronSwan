@@ -12,7 +12,9 @@ Be warned: it's super heavy metal, thus the name. It is good for all sorts of bo
 
 ## Make a book
 
-Copy the Iron Swan files into a separate folder for your book. Open `book.txt`. Put your title, byline and copyright at the top. Below them, give each chapter one line, in reading order. Here's a whole little book:
+[Download Iron Swan (ZIP)](https://github.com/jkosem/IronSwan/archive/refs/heads/main.zip) and unzip it. Open the folder that has `index.html` and `book.txt` side by side. Rename that folder for your book and keep it for future updates.
+
+Open `book.txt`. Put your title, byline and copyright at the top. Below them, give each chapter one line, in reading order. Here's a whole little book:
 
 ```text
 Title: After the Thaw
@@ -89,6 +91,14 @@ MIT License
 Copyright (c) 2025 Jim Kosem
 
 ## README archive - what it was like at the time
+
+### Before v1.5 - starting a book
+
+<details><summary>Previous first instruction</summary>
+
+Copy the Iron Swan files into a separate folder for your book.
+
+</details>
 
 ### Before v1.4 - themes
 
