@@ -2,9 +2,13 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
-## In review - v1.4 · A book with its own identity
+## v1.5 · A book anyone can publish
 
-Starter Theme uses the shared base styles or inherits Iron Swan and sets the reading typeface and primary accent. Owner review pending.
+Authors can download Iron Swan, edit the supplied numbered chapters, publish the book folder on their own web host and correct a paragraph at the same chapter address. The download omits the project memory and roadmap. The owner tested publishing and updating the book in [PR #14](https://github.com/jkosem/IronSwan/pull/14) and checked the ZIP in [PR #16](https://github.com/jkosem/IronSwan/pull/16). Published on 28 November 2026 at `c52d945`. See the [v1.5 release](https://github.com/jkosem/IronSwan/releases/tag/v1.5).
+
+## v1.4 · A book with its own identity
+
+Authors can choose Iron Swan or Starter Theme, set Starter Theme's reading typeface and accent, and use their own cover with either theme. The owner accepted the cover, typography and reading checks in [PR #13](https://github.com/jkosem/IronSwan/pull/13). Published on 28 November 2026 at `3d6aa53`. See the [v1.4 release](https://github.com/jkosem/IronSwan/releases/tag/v1.4).
 
 ## v1.3 · A better way to read
 
