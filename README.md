@@ -32,41 +32,13 @@ Put the prose in `markdown/first-snow.md` and `markdown/the-river.md`. Start wit
 
 Save both files to your static web host and refresh the contents page. For an existing v1.1 book, keep your original Markdown and numbered HTML pages. Books without `book.txt` use their existing `js/config.js`; to adopt the new format, list each chapter in `book.txt`. Standard numbered filenames keep their old page addresses. Keep any custom mapping between numbered pages and differently named Markdown files in the legacy configuration.
 
-## Themes
+## Give your book its own look
 
-Iron Swan supports modular themes using standalone CSS files. They all link to a single entry point: `css/theme.css`. Themes are super important. Probably.
+Open `css/theme.css` and leave one import active. Choose Iron Swan, Cold Forest or `my-book-theme.css`. Save and refresh the contents and a chapter.
 
-Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
+For your own theme, start in `css/my-book-theme.css`. Its first line picks the original theme to build on. The next two settings choose the reading typeface and primary accent. Try a font already on your device. Scroll down a chapter to see the accent in the progress bar. Pick a color you can also read against the background. The reading sizes come from the template.
 
-- **`css/ironswan-theme.css`**: The signature Iron Swan dark theme (matches the logo aesthetic)
-- **`css/coldforest-theme.css`**: The Cold Forest theme (under development, replacing the old "base" theme)
-
-### How to Switch Themes
-
-Open `css/theme.css` and uncomment the theme you want:
-
-```css
-/* ==========================================================================
-   Theme Selection
-   Uncomment ONE of the lines below to choose the active theme:
-   ========================================================================== */
-@import url('ironswan-theme.css');
-/* @import url('coldforest-theme.css'); */
-```
-
-Save the file and refresh your browser. That's it.
-
-*(You can also set `theme: "ironswan"` or `theme: "coldforest"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
-
-### Creating a New Theme
-
-1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
-2. Add your styles (you can use `ironswan-theme.css` or `coldforest-theme.css` as a starter template).
-3. Add an `@import` line for it in `css/theme.css`:
-
-   ```css
-   @import url('mycool-theme.css');
-   ```
+For the cover, replace `images/cover-image.jpg` with your JPEG. The supplied image is 320 by 519 pixels. Use the same proportions, or update the width and height in `index.html` for a different shape. Your cover follows the book across themes. Existing custom theme files can still be selected in `css/theme.css`.
 
 ## Versions
 
@@ -117,6 +89,48 @@ MIT License
 Copyright (c) 2025 Jim Kosem
 
 ## README archive - what it was like at the time
+
+### Before v1.4 - themes
+
+<details><summary>Previous theme instructions</summary>
+
+## Themes
+
+Iron Swan supports modular themes using standalone CSS files. They all link to a single entry point: `css/theme.css`. Themes are super important. Probably.
+
+Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
+
+- **`css/ironswan-theme.css`**: The signature Iron Swan dark theme (matches the logo aesthetic)
+- **`css/coldforest-theme.css`**: The Cold Forest theme (under development, replacing the old "base" theme)
+
+### How to Switch Themes
+
+Open `css/theme.css` and uncomment the theme you want:
+
+```css
+/* ==========================================================================
+   Theme Selection
+   Uncomment ONE of the lines below to choose the active theme:
+   ========================================================================== */
+@import url('ironswan-theme.css');
+/* @import url('coldforest-theme.css'); */
+```
+
+Save the file and refresh your browser. That's it.
+
+*(You can also set `theme: "ironswan"` or `theme: "coldforest"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
+
+### Creating a New Theme
+
+1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
+2. Add your styles (you can use `ironswan-theme.css` or `coldforest-theme.css` as a starter template).
+3. Add an `@import` line for it in `css/theme.css`:
+
+   ```css
+   @import url('mycool-theme.css');
+   ```
+
+</details>
 
 ### 26 November 2026 - adding chapters in v1.1
 

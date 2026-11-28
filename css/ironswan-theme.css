@@ -19,7 +19,7 @@
   --is-border-bright: #8b2cf5;         /* Electric Neon Border */
   --is-text-primary: #f5eeff;          /* Starlight White */
   --is-text-muted: #9b8ec0;            /* Cosmic Dust / Matted Violet */
-  --is-accent: #b026ff;                /* GeoCities Electric Purple */
+  --is-accent: var(--book-accent, #b026ff);                /* GeoCities Electric Purple */
   --is-accent-hover: #00f0ff;          /* Cosmic Starlight Cyan */
   --is-accent-magenta: #e040fb;        /* Supernova Magenta */
   
@@ -36,7 +36,7 @@
   
   /* Typography Tokens */
   --font-serif-brand: "Newsreader", "Times New Roman", Times, Georgia, serif;
-  --font-editorial-body: "Newsreader", "Times New Roman", Times, Georgia, serif;
+  --font-editorial-body: var(--book-reading-font, "Newsreader", "Times New Roman", Times, Georgia, serif);
   --font-utilitarian-mono: "Space Mono", "Courier New", Courier, monospace;
   
   --font-primary: var(--font-editorial-body);

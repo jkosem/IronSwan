@@ -74,7 +74,7 @@ The v1.1 release commit is [c23065a](https://github.com/jkosem/IronSwan/commit/c
 
 In v1.2, new books use book.txt and a shared chapter reader. The contents loads the list without downloading chapter bodies. For later releases, use real reading and publishing tasks; preserve both themes and portable flat files. Scope and acceptance criteria are maintained in ROADMAP.md, not duplicated here.
 
-The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Owner acceptance and merge approval are pending.
+The approved v1.3 scope is paragraph-level return through Continue reading. The ordinary contents entry opens the chapter at its beginning. Keep the existing Next label. Accepted, merged in PR #10 and published as v1.3. PR #12 established 19px phone and 20px desktop prose at default browser settings. The owner approved an optional two-setting theme starter for v1.4. Browser acceptance is pending.
 
 ## 7. Operating instruction for future Iron Swan project chats
 

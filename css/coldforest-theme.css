@@ -9,7 +9,7 @@
 :root[data-theme="cold-forest"],
 [data-theme="coldforest"],
 [data-theme="cold-forest"] {
-  /* Cold Forest design tokens (customize as you develop the theme) */
+  /* Optional book settings inherit the shared defaults when omitted. */
 }
 
 body {

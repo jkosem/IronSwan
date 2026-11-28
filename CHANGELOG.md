@@ -2,9 +2,13 @@
 
 This records user outcomes and release status. The [roadmap](ROADMAP.md) describes future work. A merged PR is not automatically a published release.
 
-## In review - v1.3 · A better way to read
+## In review - v1.4 · A book with its own identity
 
-Continue reading returns to the paragraph at the top of the reading view in the same browser. Choosing a chapter from the contents starts at its opening. Owner acceptance is pending.
+An optional starter inherits either supplied theme and sets the reading typeface and primary accent. Owner review pending.
+
+## v1.3 · A better way to read
+
+Continue reading returns to the paragraph at the top of the reading view in the same browser. Choosing a chapter from the contents starts at its opening. Accepted and published on 26 November in the [v1.3 release](https://github.com/jkosem/IronSwan/releases/tag/v1.3). PR #12 subsequently increased chapter text sizes.
 
 ## v1.2 - An easy book to create
 

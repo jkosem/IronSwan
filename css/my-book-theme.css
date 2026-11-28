@@ -1,0 +1,9 @@
+/* Start with either coldforest-theme.css or ironswan-theme.css. */
+@import url('coldforest-theme.css');
+
+:root {
+  /* Reading typeface */
+  --book-reading-font: Arial, sans-serif;
+  /* Primary accent */
+  --book-accent: #ffbd72;
+}
