@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+/IronSwan-Project-Memory.md export-ignore
+/ROADMAP.md export-ignore
