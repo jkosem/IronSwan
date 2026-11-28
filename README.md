@@ -14,6 +14,8 @@ Be warned: it's super heavy metal, thus the name. It is good for all sorts of bo
 
 [Download Iron Swan (ZIP)](https://github.com/jkosem/IronSwan/archive/refs/heads/main.zip) and unzip it. Open the folder that has `index.html` and `book.txt` side by side. Rename that folder for your book and keep it for future updates.
 
+Each chapter needs one Markdown (`.md`) file in the `markdown` folder and one line in `book.txt`. Iron Swan already includes `chapter.html`, the reading page shared by all chapters. Leave the supplied chapter HTML files as they are.
+
 Open `book.txt`. Put your title, byline and copyright at the top. Below them, give each chapter one line, in reading order. Here's a whole little book:
 
 ```text
@@ -27,14 +29,19 @@ the-river.md | The River
 
 Put the prose in `markdown/first-snow.md` and `markdown/the-river.md`. Start with your first sentence. The reader supplies the chapter heading from the list. Use `##` for sections. Keep filenames simple (letters, numbers, spaces, hyphens or underscores ending in `.md`).
 
-- **Add a chapter.** Save the Markdown file and add its line to the list.
+- **Add a chapter.** For example, save `markdown/the-bridge.md` and add `the-bridge.md | The Bridge` to `book.txt`. That’s the whole job.
 - **Rename a chapter.** Change the words after the bar. Keep the filename so bookmarks still work.
 - **Move a chapter.** Move its line. The contents numbers and Previous/Next links follow along.
 - **Remove a chapter.** Remove its line. If you want the text taken off the web too, remove the Markdown file from your host.
 
 To publish, upload the contents of your book folder to your web host. Keep `index.html` at the top level, alongside `book.txt`, and keep the `markdown`, `images`, `css` and `js` folders beside them. To fix a paragraph later, edit its Markdown file and upload the updated book to the same location. Keep the chapter filename so its link stays the same.
 
+<details>
+<summary>Updating an older v1.1 book with numbered HTML pages</summary>
+
 For an existing v1.1 book, keep your original Markdown and numbered HTML pages. Books without `book.txt` use their existing `js/config.js`; to adopt the new format, list each chapter in `book.txt`. Standard numbered filenames keep their old page addresses. Keep any custom mapping between numbered pages and differently named Markdown files in the legacy configuration.
+
+</details>
 
 ## Give your book its own look
 
@@ -52,7 +59,7 @@ The original working template was called v1 (historical v1.0). The November work
 
 Markdown is rendered as text-first HTML: raw HTML is escaped, and unsafe URL schemes are rejected. Supported features include headings, paragraphs, emphasis, links, images, blockquotes, horizontal rules, numbered and bulleted lists, and fenced code blocks. This is intentionally a small Markdown subset, not full CommonMark; deeply nested lists and complex inline nesting are not supported.
 
-Each chapter is a separate HTML document. Browsers handle HTTP caching across chapters; the old in-memory prefetch feature was removed because its cache did not survive navigation.
+For books with `book.txt`, each chapter has its own link to the shared `chapter.html` reader. Browsers handle HTTP caching across chapters; the old in-memory prefetch feature was removed because its cache did not survive navigation.
 
 ## Tests
 
@@ -93,6 +100,8 @@ MIT License
 Copyright (c) 2025 Jim Kosem
 
 ## README archive - what it was like at the time
+
+The instructions below describe older versions. For a new book, follow [Make a book](#make-a-book).
 
 ### Before v1.5 - starting a book
 
