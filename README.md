@@ -34,9 +34,9 @@ To publish on Netlify, deploy the whole book folder with `index.html` at its roo
 
 ## Give your book its own look
 
-Open `css/theme.css` and leave one import active. Choose Iron Swan, Classic or `my-book-theme.css`. Save and refresh the contents and a chapter.
+Open `css/theme.css` and leave one import active. Choose Iron Swan (the default) or Starter Theme. Save and refresh the contents and a chapter.
 
-For your own theme, start in `css/my-book-theme.css`. Its first line picks the original theme to build on. The next two settings choose the reading typeface and primary accent. Try a font already on your device. Scroll down a chapter to see the accent in the progress bar. Pick a color you can also read against the background. The reading sizes come from the template.
+To customize Starter Theme, open `css/starter-theme.css`. Its first line picks the original theme to build on. The next two settings choose the reading typeface and primary accent. Try a font already on your device. Scroll down a chapter to see the accent in the progress bar. Pick a color you can also read against the background. The reading sizes come from the template.
 
 For the cover, replace `images/cover-image.jpg` with your JPEG. The supplied image is 320 by 519 pixels. Use the same proportions, or update the width and height in `index.html` for a different shape. Your cover follows the book across themes. Existing custom theme files can still be selected in `css/theme.css`.
 
@@ -101,7 +101,7 @@ Iron Swan supports modular themes using standalone CSS files. They all link to a
 Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
 
 - **`css/ironswan-theme.css`**: The signature Iron Swan dark theme (matches the logo aesthetic)
-- **`css/classic-theme.css`**: The Classic theme
+- **`css/starter-theme.css`**: Starter Theme
 
 ### How to Switch Themes
 
@@ -113,17 +113,17 @@ Open `css/theme.css` and uncomment the theme you want:
    Uncomment ONE of the lines below to choose the active theme:
    ========================================================================== */
 @import url('ironswan-theme.css');
-/* @import url('classic-theme.css'); */
+/* @import url('starter-theme.css'); */
 ```
 
 Save the file and refresh your browser. That's it.
 
-*(You can also set `theme: "ironswan"` or `theme: "classic"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
+*(You can also set `theme: "ironswan"` or `theme: "starter"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
 
 ### Creating a New Theme
 
 1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
-2. Add your styles (you can use `ironswan-theme.css` or `classic-theme.css` as a starter template).
+2. Add your styles (you can use `ironswan-theme.css` or `starter-theme.css` as a starter template).
 3. Add an `@import` line for it in `css/theme.css`:
 
    ```css
@@ -190,7 +190,7 @@ Iron Swan supports modular themes using standalone CSS files. They all link to a
 Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
 
 - **`css/ironswan-theme.css`**: The signature Iron Swan dark theme (matches the logo aesthetic)
-- **`css/classic-theme.css`**: The Classic theme
+- **`css/starter-theme.css`**: Starter Theme
 
 ### How to Switch Themes
 
@@ -202,17 +202,17 @@ Open `css/theme.css` and uncomment the theme you want:
    Uncomment ONE of the lines below to choose the active theme:
    ========================================================================== */
 @import url('ironswan-theme.css');
-/* @import url('classic-theme.css'); */
+/* @import url('starter-theme.css'); */
 ```
 
 Save the file and refresh your browser. That's it.
 
-*(You can also set `theme: "ironswan"` or `theme: "classic"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
+*(You can also set `theme: "ironswan"` or `theme: "starter"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
 
 ### Creating a New Theme
 
 1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
-2. Add your styles (you can use `ironswan-theme.css` or `classic-theme.css` as a starter template).
+2. Add your styles (you can use `ironswan-theme.css` or `starter-theme.css` as a starter template).
 3. Add an `@import` line for it in `css/theme.css`:
 
    ```css
@@ -312,7 +312,7 @@ Iron Swan supports modular themes using standalone CSS files. They all link to a
 Theme files live in `css/` and follow the `[name]-theme.css` naming convention:
 
 - **`css/ironswan-theme.css`**: The signature Iron Swan dark theme (matches the logo aesthetic)
-- **`css/classic-theme.css`**: The Classic theme
+- **`css/starter-theme.css`**: Starter Theme
 
 ### How to Switch Themes
 
@@ -324,17 +324,17 @@ Open `css/theme.css` and uncomment the theme you want:
    Uncomment ONE of the lines below to choose the active theme:
    ========================================================================== */
 @import url('ironswan-theme.css');
-/* @import url('classic-theme.css'); */
+/* @import url('starter-theme.css'); */
 ```
 
 Save the file and refresh your browser. That's it.
 
-*(You can also set `theme: "ironswan"` or `theme: "classic"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
+*(You can also set `theme: "ironswan"` or `theme: "starter"` in `js/config.js` if you like keeping your active theme recorded in your book config).*
 
 ### Creating a New Theme
 
 1. Create a new CSS file in `css/`: e.g. `css/mycool-theme.css`.
-2. Add your styles (you can use `ironswan-theme.css` or `classic-theme.css` as a starter template).
+2. Add your styles (you can use `ironswan-theme.css` or `starter-theme.css` as a starter template).
 3. Add an `@import` line for it in `css/theme.css`:
 
    ```css

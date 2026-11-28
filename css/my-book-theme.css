@@ -1,9 +1,0 @@
-/* Start with either classic-theme.css or ironswan-theme.css. */
-@import url('classic-theme.css');
-
-:root {
-  /* Reading typeface */
-  --book-reading-font: Arial, sans-serif;
-  /* Primary accent */
-  --book-accent: #ffbd72;
-}

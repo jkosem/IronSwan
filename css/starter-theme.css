@@ -1,0 +1,9 @@
+/* Starter Theme. Use base.css for the neutral layout or ironswan-theme.css for the signature layout. */
+@import url('base.css');
+
+:root {
+  /* Reading typeface */
+  --book-reading-font: Arial, sans-serif;
+  /* Primary accent */
+  --book-accent: #ffbd72;
+}

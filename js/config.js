@@ -7,7 +7,7 @@ const BookConfig = {
 
   // Theme selection - uncomment ONE of the lines below:
   theme: "ironswan",
-  // theme: "classic",
+  // theme: "starter",
 
   chapters: [
     {

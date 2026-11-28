@@ -4,7 +4,7 @@ This records user outcomes and release status. The [roadmap](ROADMAP.md) describ
 
 ## In review - v1.4 · A book with its own identity
 
-An optional starter inherits either supplied theme and sets the reading typeface and primary accent. Owner review pending.
+Starter Theme uses the shared base styles or inherits Iron Swan and sets the reading typeface and primary accent. Owner review pending.
 
 ## v1.3 · A better way to read
 
