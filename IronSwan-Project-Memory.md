@@ -10,7 +10,7 @@ Repository: https://github.com/jkosem/IronSwan
 
 The goal is to make attractive, readable web books that authors can adapt and host on their own ordinary web server. Simplicity is a feature, not a temporary limitation.
 
-**Iron Swan is the software, not the book.** Cold Forest is a separate book that uses Iron Swan, and a real-world test case for the template. The repository includes a Cold Forest theme. Book-specific editorial decisions, marketing and distribution belong in the separate Cold Forest project. Do not make the reusable software dependent on one publication's needs without explicit approval.
+Iron Swan is the reusable publishing software. Each book lives in a separate copy with its own Markdown, cover, theme settings and deployment.
 
 ## 2. Standing design and development constraints
 
@@ -31,7 +31,7 @@ The goal is to make attractive, readable web books that authors can adapt and ho
 
 - `index.html`: cover and table of contents; chapter pages `chapter-01.html` etc. load matching `markdown/chapter-01.md` files. `js/chapter.js` detects chapter ID from filename. In v1.1, to add a chapter, create matching Markdown and HTML files and add metadata in `js/config.js`.
 - `js/toc-generator.js` uses configured titles without downloading chapters. Keep configuration and Markdown headings synchronized until a better approach is approved.
-- CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `coldforest-theme.css`.
+- CSS is split into layout, typography, colors, theme entry point and `ironswan-theme.css` / `classic-theme.css`.
 - Markdown parser deliberately supports a subset (not complete CommonMark). Raw HTML escaped, unsafe URL schemes rejected; deeply nested lists and complex inline nesting remain unsupported. Do not imply arbitrary untrusted Markdown is comprehensively audited.
 - Scroll progress uses a transform and cached page dimensions. Browser HTTP caching replaces ineffective cross-page in-memory prefetch.
 - `node --test tests/*.test.mjs` runs dependency-free tests; 14 tests reported passing in PR #4. GitHub Actions workflow `.github/workflows/tests.yml` runs regression and performance tests. Prior project conversation reports main protection requiring passing tests; protection settings were not independently inspected in this review.

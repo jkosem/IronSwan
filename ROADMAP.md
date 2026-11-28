@@ -4,7 +4,7 @@ Approved product direction, 26 November 2026. Future milestones are flexible; no
 
 ## Vision
 
-A simple, elegant, open-source way to create, design, read and independently publish books on the web. Readers need comfortable, uninterrupted reading; authors need uncomplicated publishing; designers need creative control. Cold Forest is a real-world test book, not the software itself.
+A simple, elegant, open-source way to create, design, read and independently publish books on the web. Readers need comfortable, uninterrupted reading; authors need uncomplicated publishing; designers need creative control. Each published book has its own copy of the template and its own website.
 
 ## Principles
 

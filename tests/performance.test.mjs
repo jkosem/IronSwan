@@ -12,7 +12,7 @@ async function budget(paths, max) {
   assert.ok(bytes <= max, paths.join(', ') + ': ' + bytes + ' bytes exceeds ' + max);
 }
 
-for (const theme of ['ironswan', 'coldforest']) {
+for (const theme of ['ironswan', 'classic']) {
   test(theme + ' CSS stays within 10 KiB gzip', async () => {
     await budget(['css/colors.css', 'css/typography.css', 'css/layout.css', 'css/theme.css', 'css/' + theme + '-theme.css'], 10 * kib);
   });

@@ -1,16 +1,4 @@
-/* ==========================================================================
-   Cold Forest Theme (coldforest-theme.css)
-   Under development - replaces the original "base" theme.
-   Customize your Cold Forest tokens and styles here.
-   ========================================================================== */
-
-:root,
-:root[data-theme="coldforest"],
-:root[data-theme="cold-forest"],
-[data-theme="coldforest"],
-[data-theme="cold-forest"] {
-  /* Optional book settings inherit the shared defaults when omitted. */
-}
+/* Classic theme */
 
 body {
   background-color: var(--color-bg);
